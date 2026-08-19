@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useState } from 'react';
+import InviteRegistrationForm from './InviteRegistrationForm';
 
 type Product = {
   eyebrow: string;
@@ -422,85 +423,7 @@ export default function HomePage() {
           </div>
 
           <div className="formCard reveal">
-            {done ? (
-              <div className="successState">
-                <div className="successIcon">✓</div>
-                <span className="eyebrow">CADASTRO CONCLUÍDO</span>
-                <h3>
-                  Nos vemos
-                  <br />
-                  no stand da Rocha.
-                </h3>
-                <p>Seu cadastro foi recebido. Nossa equipe comercial estará pronta para receber você no Salão do Imóvel.</p>
-                <button onClick={() => setDone(false)}>Cadastrar outro corretor</button>
-              </div>
-            ) : (
-              <form onSubmit={submit}>
-                <div className="hpField" aria-hidden="true">
-                  <label>Site
-                    <input name="website" tabIndex={-1} autoComplete="off" />
-                  </label>
-                </div>
-                <div className="formTitle">
-                  <span>CADASTRO DE CORRETOR</span>
-                  <strong>Leva menos de 1 minuto.</strong>
-                </div>
-                <label>
-                  Nome completo
-                  <input name="name" required placeholder="Seu nome" />
-                </label>
-                <div className="twoCols">
-                  <label>
-                    WhatsApp
-                    <input name="phone" required placeholder="(82) 99999-9999" />
-                  </label>
-                  <label>
-                    CRECI
-                    <input name="creci" placeholder="Ex.: CRECI 0000" />
-                  </label>
-                </div>
-                <label>
-                  Imobiliária ou perfil
-                  <select name="brokerage" defaultValue="" required disabled={brokeragesLoading}>
-                    <option value="">{brokeragesLoading ? 'Carregando opções...' : 'Selecione sua imobiliária ou Corretor autônomo'}</option>
-                    {brokerages.map((brokerage) => (
-                      <option key={brokerage.id} value={brokerage.slug}>
-                        {brokerage.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  E-mail
-                  <input name="email" type="email" placeholder="voce@email.com" />
-                </label>
-                <label>
-                  Qual produto quer conhecer melhor?
-                  <select name="interest" defaultValue="">
-                    <option value="">Quero conhecer todos</option>
-                    <option>Easy Rota do Mar</option>
-                    <option>Vistas do Sino</option>
-                    <option>Eco Vittá</option>
-                  </select>
-                </label>
-                <label>
-                  Você já comercializa empreendimentos da Rocha?
-                  <select name="relationship" defaultValue="" required>
-                    <option value="">Selecione</option>
-                    <option>Sim</option>
-                    <option>Ainda não</option>
-                  </select>
-                </label>
-                <label className="consent">
-                  <input type="checkbox" name="consent" value="yes" required />
-                  <span>Autorizo o contato da Rocha Empreendimentos por telefone, WhatsApp ou e-mail para relacionamento comercial.</span>
-                </label>
-                <button className="submitButton" disabled={sending}>
-                  {sending ? 'Enviando...' : 'Confirmar minha presença'} <span>↗</span>
-                </button>
-                {message && <p className="error">{message}</p>}
-              </form>
-            )}
+            <InviteRegistrationForm />
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { getSupabaseAdmin } from '@/lib/supabase';
 import { normalizeLead } from '@/lib/text';
 import LeadActions from './LeadActions';
 import QuotaControl from './QuotaControl';
+import BrokerageManager from './BrokerageManager';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,6 +28,7 @@ type Brokerage = {
   name: string;
   slug: string;
   invite_limit: number;
+  invite_code: string;
   is_active: boolean;
 };
 
@@ -52,7 +54,7 @@ export default async function AdminPage() {
 
   const [{ data: leadsData }, { data: brokeragesData }] = await Promise.all([
     supabase.from('salao_leads').select('*').order('created_at', { ascending: false }),
-    supabase.from('salao_brokerages').select('id,name,slug,invite_limit,is_active').eq('is_active', true).order('name'),
+    supabase.from('salao_brokerages').select('id,name,slug,invite_limit,invite_code,is_active').eq('is_active', true).order('name'),
   ]);
 
   const leads = ((leadsData || []) as Lead[]).map((lead) => normalizeLead(lead));
@@ -90,6 +92,8 @@ export default async function AdminPage() {
         <div><span>Cadastros hoje</span><b>{todayCount}</b></div>
         <div><span>Novos parceiros</span><b>{newPartners}</b></div>
       </div>
+
+      <BrokerageManager quotas={quotas} />
 
       <QuotaControl quotas={quotas} />
 

@@ -1,0 +1,477 @@
+/* ==========================================================
+   SISTEMA DE CÓDIGOS DE CONVITE
+   ========================================================== */
+
+.inviteGate{
+  margin:0 0 24px;
+  padding:20px;
+  background:#f6f4f0;
+  border:1px solid #dedbd5;
+  border-left:4px solid #b9b7b2;
+}
+
+.inviteGate--valid{
+  background:#f4f7f4;
+  border-color:#d5ded7;
+  border-left-color:#557462;
+}
+
+.inviteGate>label{
+  margin-bottom:0!important;
+}
+
+.inviteCodeRow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  align-items:end;
+}
+
+.inviteCodeRow input{
+  margin-top:7px!important;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-weight:800;
+}
+
+.inviteValidateButton{
+  height:50px;
+  min-width:112px;
+  border:0;
+  padding:0 16px;
+  background:#2f3133;
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:9px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.inviteValidateButton:hover{
+  background:#1f2022;
+}
+
+.inviteValidateButton:disabled{
+  opacity:.65;
+  cursor:wait;
+}
+
+.inviteHelp{
+  display:block;
+  margin-top:9px;
+  color:#787b7e;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.inviteError{
+  margin:10px 0 0;
+  color:#a83030;
+  font-size:11px;
+  line-height:1.45;
+}
+
+.inviteValid{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:4px 12px;
+  align-items:center;
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid #d8dfda;
+}
+
+.inviteValid span{
+  grid-row:1 / 3;
+  color:#557462;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+
+.inviteValid strong{
+  font-size:16px;
+  color:#303234;
+}
+
+.inviteValid small{
+  font-size:10px;
+  color:#6f7370;
+}
+
+.inviteUnlocked{
+  animation:inviteUnlock .35s ease both;
+}
+
+@keyframes inviteUnlock{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:none}
+}
+
+/* ==========================================================
+   ADMIN â€” GESTÃƒO DE IMOBILIÁRIAS
+   ========================================================== */
+
+.brokerageManager{
+  margin:18px 0 30px;
+  padding-top:28px;
+  border-top:1px solid #dedede;
+}
+
+.brokerageManagerHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:18px;
+}
+
+.brokerageManagerHead>div>span{
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.16em;
+  color:#dc1f2d;
+}
+
+.brokerageManagerHead h2{
+  margin:6px 0 0;
+  font-size:26px;
+  letter-spacing:-.04em;
+}
+
+.brokerageManagerHead p{
+  max-width:520px;
+  margin:0;
+  text-align:right;
+  color:#73777a;
+  font-size:11px;
+  line-height:1.55;
+}
+
+.brokerageCreate{
+  display:grid;
+  grid-template-columns:minmax(180px,.8fr) minmax(230px,1.5fr) 110px auto;
+  gap:12px;
+  align-items:end;
+  padding:16px;
+  margin-bottom:12px;
+  background:#2f3133;
+  color:#fff;
+}
+
+.brokerageCreate>div span{
+  display:block;
+  margin-bottom:5px;
+  color:#ef6b75;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.15em;
+}
+
+.brokerageCreate>div strong{
+  font-size:17px;
+}
+
+.brokerageCreate label{
+  color:#d7d8d9;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.brokerageCreate input{
+  display:block;
+  width:100%;
+  height:42px;
+  margin-top:6px;
+  border:1px solid #5c5e60;
+  background:#fff;
+  color:#252729;
+  padding:0 11px;
+  font:inherit;
+  font-size:12px;
+  outline:none;
+}
+
+.brokerageCreate button{
+  height:42px;
+  border:0;
+  background:#dc1f2d;
+  color:#fff;
+  padding:0 16px;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.brokerageCreate button:disabled{
+  opacity:.6;
+  cursor:wait;
+}
+
+.brokerageManagerTools{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  padding:13px 14px;
+  background:#f5f4f1;
+  border:1px solid #dedede;
+  border-bottom:0;
+}
+
+.brokerageManagerTools label{
+  width:min(360px,100%);
+}
+
+.brokerageManagerTools label span{
+  display:block;
+  margin-bottom:6px;
+  color:#74777a;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.1em;
+}
+
+.brokerageManagerTools input{
+  width:100%;
+  height:39px;
+  padding:0 11px;
+  border:1px solid #ccc9c3;
+  background:#fff;
+  font:inherit;
+  font-size:12px;
+  outline:none;
+}
+
+.brokerageManagerTools small{
+  max-width:470px;
+  color:#787b7e;
+  font-size:9px;
+  line-height:1.45;
+  text-align:right;
+}
+
+.brokerageFeedback{
+  padding:10px 13px;
+  border:1px solid #dedede;
+  border-bottom:0;
+  background:#fff;
+  color:#55585a;
+  font-size:10px;
+}
+
+.brokerageManageTableWrap{
+  max-height:620px;
+  overflow:auto;
+  background:#fff;
+  border:1px solid #dedede;
+}
+
+.brokerageManageTable{
+  width:100%;
+  min-width:1080px;
+  border-collapse:collapse;
+}
+
+.brokerageManageTable th{
+  position:sticky;
+  top:0;
+  z-index:2;
+  background:#f5f4f1;
+  color:#5f6265;
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:11px 12px;
+  border-bottom:1px solid #dedede;
+}
+
+.brokerageManageTable td{
+  padding:11px 12px;
+  border-bottom:1px solid #eceae6;
+  vertical-align:middle;
+}
+
+.brokerageManageTable tbody tr:hover{
+  background:#fbfaf8;
+}
+
+.managedSpecial{
+  display:block;
+  margin-bottom:5px;
+  color:#dc1f2d;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+
+.managedNameInput{
+  width:100%;
+  min-width:190px;
+  height:36px;
+  border:1px solid transparent;
+  background:transparent;
+  padding:0 8px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  color:#252729;
+}
+
+.managedNameInput:not(:disabled):focus{
+  background:#fff;
+  border-color:#bbb8b2;
+  outline:none;
+}
+
+.managedNameInput:disabled{
+  color:#252729;
+  opacity:1;
+}
+
+.managedCode{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.managedCode code{
+  display:inline-block;
+  padding:8px 9px;
+  background:#f1efeb;
+  border:1px solid #dfdcd6;
+  color:#303234;
+  font-size:10px;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+
+.managedCode button{
+  border:1px solid #ccc9c3;
+  background:#fff;
+  height:32px;
+  padding:0 9px;
+  color:#55585a;
+  font-size:8px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.managedNumeric{
+  text-align:center;
+  font-size:12px;
+  font-variant-numeric:tabular-nums;
+}
+
+.managedLimitInput{
+  display:block;
+  width:72px;
+  height:36px;
+  margin:auto;
+  border:1px solid #ccc9c3;
+  background:#fff;
+  padding:0 8px;
+  text-align:center;
+  font:inherit;
+  font-size:12px;
+}
+
+.managedActions{
+  display:flex;
+  gap:6px;
+}
+
+.managedActions button{
+  height:34px;
+  border:1px solid #ccc9c3;
+  padding:0 10px;
+  font:inherit;
+  font-size:8px;
+  font-weight:900;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.managedSave{
+  background:#2f3133;
+  border-color:#2f3133!important;
+  color:#fff;
+}
+
+.managedRegenerate{
+  background:#fff;
+  color:#55585a;
+}
+
+.managedActions button:disabled{
+  opacity:.55;
+  cursor:wait;
+}
+
+@media(max-width:720px){
+  .inviteGate{
+    padding:16px;
+  }
+
+  .inviteCodeRow{
+    grid-template-columns:1fr;
+  }
+
+  .inviteValidateButton{
+    width:100%;
+  }
+
+  .inviteValid{
+    grid-template-columns:1fr;
+  }
+
+  .inviteValid span{
+    grid-row:auto;
+  }
+
+  .brokerageManagerHead{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .brokerageManagerHead p{
+    text-align:left;
+  }
+
+  .brokerageCreate{
+    grid-template-columns:1fr;
+  }
+
+  .brokerageManagerTools{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .brokerageManagerTools small{
+    text-align:left;
+  }
+}
+/* Exclusão segura de imobiliária */
+.managedDelete{
+  background:#fff;
+  border-color:#d8a9ad!important;
+  color:#b41f2b;
+}
+
+.managedDelete:hover:not(:disabled){
+  background:#b41f2b;
+  border-color:#b41f2b!important;
+  color:#fff;
+}
+
+.managedDelete:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}

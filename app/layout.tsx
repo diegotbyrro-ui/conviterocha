@@ -1,5 +1,6 @@
-﻿import './styles.css';
+import './styles.css';
 import './mobile-fixes.css';
+import './invite-system.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

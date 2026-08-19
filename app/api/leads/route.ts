@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getSupabaseAdmin } from '@/lib/supabase';
+import { normalizeInviteCode } from '@/lib/invites';
 import { normalizeText } from '@/lib/text';
 import { checkRateLimit, getClientIp, isSameOriginRequest, readJsonWithLimit } from '@/lib/security';
 
@@ -9,7 +10,7 @@ const schema = z.object({
   phone: z.string().trim().min(8).max(30),
   email: z.string().trim().max(160).email().optional().or(z.literal('')),
   creci: z.string().trim().max(40).optional().default(''),
-  brokerage: z.string().trim().min(2).max(100).regex(/^[a-z0-9-]+$/i),
+  invite_code: z.string().trim().min(6).max(40),
   interest: z.enum(['', 'Easy Rota do Mar', 'Vistas do Sino', 'Eco Vittá']).optional().default(''),
   relationship: z.enum(['Sim', 'Ainda não']),
   consent: z.literal('yes'),
@@ -42,6 +43,7 @@ export async function POST(req: Request) {
   const ip = getClientIp(req);
   const burst = checkRateLimit(`lead-burst:${ip}`, 40, 60 * 1000);
   const hourly = checkRateLimit(`lead-hour:${ip}`, 240, 60 * 60 * 1000);
+
   if (!burst.allowed || !hourly.allowed) {
     const retryAfter = Math.max(burst.retryAfter, hourly.retryAfter);
     return noStoreJson(
@@ -55,7 +57,6 @@ export async function POST(req: Request) {
     const raw = await readJsonWithLimit(req, 12 * 1024);
     const body = schema.parse(raw);
 
-    // Honeypot: robôs que preenchem todos os campos são descartados silenciosamente.
     if (body.website) return noStoreJson({ ok: true });
 
     const elapsed = Date.now() - body.form_started_at;
@@ -64,13 +65,12 @@ export async function POST(req: Request) {
     }
 
     const supabase = getSupabaseAdmin();
-    const { data, error } = await supabase.rpc('register_salao_lead', {
+    const { data, error } = await supabase.rpc('register_salao_lead_by_code', {
       p_name: normalizeText(body.name),
       p_phone: normalizeText(body.phone),
       p_email: body.email ? normalizeText(body.email) : null,
       p_creci: body.creci ? normalizeText(body.creci) : null,
-      p_brokerage_slug: body.brokerage,
-      p_broker_profile: body.brokerage === 'corretor-autonomo' ? 'Corretor autônomo' : 'Corretor de imobiliária',
+      p_invite_code: normalizeInviteCode(body.invite_code),
       p_interest: body.interest ? normalizeText(body.interest) : null,
       p_relationship: normalizeText(body.relationship),
       p_consent: true,
@@ -83,16 +83,16 @@ export async function POST(req: Request) {
     if (error) throw error;
     const result = (data || {}) as RegistrationResult;
 
-    if (!result.ok && result.code === 'BROKERAGE_FULL') {
+    if (!result.ok && result.code === 'INVITE_FULL') {
       return noStoreJson(
-        { error: body.brokerage === 'corretor-autonomo' ? 'As vagas para corretores autônomos já foram preenchidas.' : 'As vagas destinadas à sua imobiliária já foram preenchidas.', code: result.code },
+        { error: 'O limite de convites deste código já foi atingido.', code: result.code },
         409
       );
     }
 
-    if (!result.ok && result.code === 'BROKERAGE_NOT_FOUND') {
+    if (!result.ok && result.code === 'INVITE_INVALID') {
       return noStoreJson(
-        { error: 'Opção não encontrada ou indisponível.', code: result.code },
+        { error: 'Código de convite inválido ou indisponível.', code: result.code },
         400
       );
     }
@@ -101,7 +101,6 @@ export async function POST(req: Request) {
       return noStoreJson({ error: 'Não foi possível concluir seu cadastro.' }, 400);
     }
 
-    // Não devolvemos limite, quantidade usada ou vagas restantes ao navegador público.
     return noStoreJson({ ok: true });
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -110,6 +109,7 @@ export async function POST(req: Request) {
     if (error instanceof Error && error.message === 'PAYLOAD_TOO_LARGE') {
       return noStoreJson({ error: 'Requisição muito grande.' }, 413);
     }
+
     console.error('Falha ao registrar lead:', error instanceof Error ? error.message : 'erro desconhecido');
     return noStoreJson({ error: 'Não foi possível concluir o cadastro. Tente novamente.' }, 500);
   }
