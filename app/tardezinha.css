@@ -341,7 +341,7 @@
 }
 
 /* =========================================================
-   DESKTOP / TABLET â€” mantÃ©m o layout aprovado
+   DESKTOP / TABLET Ã¢â‚¬â€ mantÃƒÂ©m o layout aprovado
    ========================================================= */
 
 .artboard{
@@ -448,7 +448,7 @@
 }
 
 /* =========================================================
-   MODAL DE CONFIRMAÃ‡ÃƒO
+   MODAL DE CONFIRMAÃƒâ€¡ÃƒÆ’O
    ========================================================= */
 
 .registrationOverlay{
@@ -769,3 +769,117 @@
 }
 
 /* MOBILE_FOOTER_LOGO_V2_END */
+
+/* DESKTOP_PREMIACAO_TRIMESTRE_START */
+
+/*
+ Substitui visualmente o antigo card
+ "Fim de tarde incrível" da arte desktop.
+ O restante da imagem permanece intacto.
+*/
+
+.desktopAwardOverlay{
+  display:none;
+}
+
+@media (min-width:900px){
+
+  .desktopAwardOverlay{
+    position:absolute;
+    z-index:6;
+
+    left:50.15%;
+    top:81.05%;
+
+    width:20.25%;
+    height:13.15%;
+
+    display:flex;
+    align-items:center;
+    gap:clamp(10px,1.05vw,19px);
+
+    padding:
+      clamp(8px,.75vw,14px)
+      clamp(10px,.95vw,18px);
+
+    border:1px solid rgba(34,94,139,.70);
+    border-radius:clamp(8px,.75vw,14px);
+
+    background:
+      radial-gradient(
+        circle at 20% 15%,
+        rgba(12,63,103,.42),
+        transparent 43%
+      ),
+      linear-gradient(
+        180deg,
+        #082a49 0%,
+        #041e38 100%
+      );
+
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.035),
+      0 8px 22px rgba(0,0,0,.13);
+
+    pointer-events:none;
+
+    font-family:"Helvetica Neue",Arial,sans-serif;
+  }
+
+  .desktopAwardIcon{
+    flex:0 0 auto;
+
+    width:clamp(45px,4.15vw,70px);
+    height:clamp(45px,4.15vw,70px);
+
+    display:grid;
+    place-items:center;
+
+    border:clamp(3px,.23vw,4px) solid #ff1739;
+    border-radius:50%;
+  }
+
+  .desktopAwardIcon svg{
+    width:58%;
+    height:58%;
+
+    fill:none;
+    stroke:#ff1739;
+    stroke-width:3.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  .desktopAwardCopy{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  .desktopAwardCopy strong{
+    display:block;
+
+    margin:0 0 clamp(5px,.45vw,8px);
+
+    color:#fff;
+
+    font-size:clamp(11px,.92vw,16px);
+    line-height:1.17;
+    font-weight:800;
+
+    letter-spacing:.025em;
+  }
+
+  .desktopAwardCopy span{
+    display:block;
+
+    color:#e1e8ee;
+
+    font-size:clamp(8px,.70vw,12px);
+    line-height:1.33;
+    font-weight:400;
+  }
+}
+
+/* DESKTOP_PREMIACAO_TRIMESTRE_END */
