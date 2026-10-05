@@ -1,27 +1,49 @@
-import InviteRegistrationForm from './InviteRegistrationForm';
+﻿import InviteRegistrationForm from './InviteRegistrationForm';
+
+const ROCHA_LOGO = '/rocha-logo-vivaalem.png';
+const DESKTOP_BG = '/tardezinha-desktop-final-20261005.png';
+const MOBILE_HERO = '/tardezinha-mobile-final-20261005.png';
+
+const highlights = [
+  {
+    number: '01',
+    title: 'Conexões verdadeiras',
+    text: 'Pessoas que constroem grandes histórias juntas.'
+  },
+  {
+    number: '02',
+    title: 'Premiação do trimestre',
+    text: 'Reconhecimento para celebrar resultados e conquistas.'
+  },
+  {
+    number: '03',
+    title: 'Boa companhia',
+    text: 'Um ambiente leve para fortalecer parcerias.'
+  },
+  {
+    number: '04',
+    title: 'Pagodinho e boa energia',
+    text: 'Música, drinks e celebração do começo ao fim.'
+  }
+];
 
 export default function HomePage() {
   return (
-    <main className="dualLayoutPage">
-
-      {/* ================= MOBILE ================= */}
-
-      <section className="mobileExperience" aria-label="Tardezinha com a Rocha">
+    <main className="tardezinhaPage">
+      {/* MOBILE */}
+      <section className="mobileExperience" aria-label="Tardezinha com a Rocha - mobile">
         <div className="mobileHeroFrame">
           <img
             className="mobileHeroImage"
-            src="/tardezinha-mobile-hero.png"
+            src={MOBILE_HERO}
             alt="Tardezinha com a Rocha"
           />
         </div>
 
         <div className="mobileContent">
-
           <section className="mobileAwardCard">
             <span className="mobileAwardEyebrow">MOMENTO ESPECIAL</span>
-
             <h2>Premiação do trimestre</h2>
-
             <p>
               Um fim de tarde para celebrar resultados, reconhecer conquistas,
               fortalecer parcerias e brindar tudo o que construímos juntos.
@@ -30,25 +52,16 @@ export default function HomePage() {
 
           <section className="mobileInviteCard">
             <div className="mobileInviteIcon">↗</div>
-
-            <span className="mobileInviteEyebrow">
-              CONFIRME SUA PRESENÇA
-            </span>
-
+            <span className="mobileInviteEyebrow">CONFIRME SUA PRESENÇA</span>
             <h3>Digite seu código de convite</h3>
-
             <p>
-              Insira o código que você recebeu para confirmar sua presença
-              na Tardezinha com a Rocha.
+              Insira o código que você recebeu para confirmar sua presença na
+              Tardezinha com a Rocha.
             </p>
-
             <InviteRegistrationForm variant="mobile" />
           </section>
 
-          <section
-            className="mobileEventGrid"
-            aria-label="Informações do evento"
-          >
+          <section className="mobileEventGrid" aria-label="Informações do evento">
             <article className="mobileEventCard">
               <span>DATA</span>
               <strong>SEXTA-FEIRA</strong>
@@ -68,265 +81,111 @@ export default function HomePage() {
             </article>
           </section>
 
-          <section
-            className="mobileHighlights"
-            aria-label="Destaques da Tardezinha"
-          >
-            <article>
-              <b>01</b>
-              <strong>Conexões verdadeiras</strong>
-              <small>
-                Pessoas que constroem grandes histórias juntas.
-              </small>
-            </article>
-
-            <article>
-              <b>02</b>
-              <strong>Premiação do trimestre</strong>
-              <small>
-                Reconhecimento para celebrar resultados e conquistas.
-              </small>
-            </article>
-
-            <article>
-              <b>03</b>
-              <strong>Boa companhia</strong>
-              <small>
-                Um ambiente leve para fortalecer parcerias.
-              </small>
-            </article>
-
-            <article>
-              <b>04</b>
-              <strong>Pagodinho e boa energia</strong>
-              <small>
-                Música, drinks e celebração do começo ao fim.
-              </small>
-            </article>
+          <section className="mobileHighlights" aria-label="Destaques do evento">
+            {highlights.map((item) => (
+              <article key={item.number}>
+                <b>{item.number}</b>
+                <strong>{item.title}</strong>
+                <small>{item.text}</small>
+              </article>
+            ))}
           </section>
 
           <footer className="mobileFooter">
-            <img
-              className="mobileFooterLogo"
-              src="/rocha-logo-footer.png"
-              alt="Rocha Empreendimentos"
-            />
-
-            <div className="mobileFooterDivider" />
-
-            <p className="mobileFooterTagline">
-              Mais que empreendimentos, construímos pessoas,
-              parcerias e novos amanhãs.
-            </p>
+            <img src={ROCHA_LOGO} alt="Rocha Empreendimentos" className="mobileFooterLogo" />
+            <p>Mais que empreendimentos, construímos pessoas, parcerias e novos amanhãs.</p>
           </footer>
-
         </div>
       </section>
 
-      {/* ================= DESKTOP ================= */}
+      {/* DESKTOP */}
+      <section className="desktopExperience" aria-label="Tardezinha com a Rocha - desktop">
+        <div
+          className="desktopScene"
+          style={{ backgroundImage: `linear-gradient(90deg, rgba(0,14,30,0.96) 0%, rgba(0,14,30,0.90) 22%, rgba(0,14,30,0.76) 40%, rgba(0,14,30,0.38) 58%, rgba(0,14,30,0.10) 100%), url(${DESKTOP_BG})` }}
+        />
 
-      <section
-        className="desktopExperience"
-        aria-label="Tardezinha com a Rocha"
-      >
-        <div className="desktopShell">
-
-          <header className="desktopHeaderLive">
-            <img
-              className="desktopHeaderLogo"
-              src="/rocha-logo-header.png"
-              alt="Rocha Empreendimentos"
-            />
-
-            <div className="desktopHeaderMark">
-              Tardezinha com a Rocha
-            </div>
+        <div className="desktopWrap">
+          <header className="desktopTopbar">
+            <img src={ROCHA_LOGO} alt="Rocha Empreendimentos" className="desktopLogo" />
+            <span className="desktopTopline">TARDEZINHA COM A ROCHA</span>
           </header>
 
-          <div className="desktopHeroLive">
+          <div className="desktopHeroGrid">
+            <div className="desktopLeft">
+              <span className="desktopEyebrow">CONVITE ESPECIAL</span>
 
-            <div className="desktopHeroCopyLive">
-
-              <span className="desktopEyebrowLive">
-                Convite especial
-              </span>
-
-              <h1 className="desktopTitleLive">
-                Tardezinha
+              <h1 className="desktopTitle">
+                TARDEZINHA
+                <span>com a Rocha</span>
               </h1>
 
-              <span className="desktopScriptLive">
-                com a Rocha
-              </span>
-
-              <p className="desktopLeadLive">
+              <h2 className="desktopSubtitle">
                 Boas conversas, grandes conexões
                 <br />
-                e <strong>novas histórias.</strong>
-              </p>
+                e novas histórias.
+              </h2>
 
-              <p className="desktopBodyLive">
-                Um encontro especial para celebrar parcerias,
-                brindar conquistas e seguir construindo
-                o que vem pela frente.
+              <p className="desktopDescription">
+                Um encontro especial para celebrar parcerias, brindar conquistas
+                e seguir construindo o que vem pela frente.
               </p>
 
               <div className="desktopAwardPill">
-                <b>★</b>
-                <span>Premiação do trimestre</span>
+                <span>★</span>
+                <strong>PREMIAÇÃO DO TRIMESTRE</strong>
               </div>
-
             </div>
-
-            <div
-              className="desktopVisualLive"
-              aria-hidden="true"
-            />
-
           </div>
 
-          <section className="desktopInviteLive">
-
+          <section className="desktopInviteCard">
             <div className="desktopInviteHead">
-              <span className="desktopInviteLink">↗</span>
-
-              <strong>
-                Digite seu código de convite
-              </strong>
+              <span>↗</span>
+              <strong>DIGITE SEU CÓDIGO DE CONVITE</strong>
             </div>
-
             <p>
-              Insira o código que você recebeu para confirmar
-              sua presença na Tardezinha com a Rocha.
+              Insira o código que você recebeu para confirmar sua presença na
+              Tardezinha com a Rocha.
             </p>
 
-            <InviteRegistrationForm variant="desktop" />
-
+            <div className="desktopInviteForm">
+              <InviteRegistrationForm variant="desktop" />
+            </div>
           </section>
 
-          <section
-            className="desktopMetaLive"
-            aria-label="Informações do evento"
-          >
+          <section className="desktopInfoBar" aria-label="Informações do evento">
+            <article>
+              <small>DATA</small>
+              <strong>SEXTA-FEIRA</strong>
+              <span>09/10/2026</span>
+            </article>
 
-            <div className="desktopMetaItem">
-              <div className="desktopMetaIcon">▣</div>
+            <article>
+              <small>HORÁRIO</small>
+              <strong>17h</strong>
+              <span>A partir das 17h</span>
+            </article>
 
-              <div className="desktopMetaText">
-                <span>Data</span>
-                <strong>SEXTA-FEIRA</strong>
-                <small>09/10/2026</small>
-              </div>
-            </div>
-
-            <div className="desktopMetaItem">
-              <div className="desktopMetaIcon">◷</div>
-
-              <div className="desktopMetaText">
-                <span>A partir das</span>
-                <strong>17h</strong>
-                <small>Fim de tarde com a Rocha</small>
-              </div>
-            </div>
-
-            <div className="desktopMetaItem">
-              <div className="desktopMetaIcon">⌖</div>
-
-              <div className="desktopMetaText">
-                <span>Local</span>
-
-                <strong>
-                  Avenida Fernandes Lima, 2229
-                </strong>
-
-                <small>
-                  Farol, Maceió - AL • CEP: 57.055-000
-                </small>
-              </div>
-            </div>
-
+            <article className="desktopInfoBarLocation">
+              <small>LOCAL</small>
+              <strong>Avenida Fernandes Lima, 2229</strong>
+              <span>Farol, Maceió - AL • CEP: 57.055-000</span>
+            </article>
           </section>
 
-          <section
-            className="desktopCardsLive"
-            aria-label="Destaques da Tardezinha"
-          >
-
-            <article className="desktopFeatureCard">
-              <div className="desktopFeatureIcon">01</div>
-
-              <strong>
-                Conexões verdadeiras
-              </strong>
-
-              <small>
-                Pessoas que constroem grandes histórias juntas.
-              </small>
-            </article>
-
-            <article className="desktopFeatureCard">
-              <div className="desktopFeatureIcon">02</div>
-
-              <strong>
-                Boa companhia
-              </strong>
-
-              <small>
-                Um ambiente leve para fortalecer parcerias.
-              </small>
-            </article>
-
-            <article className="desktopFeatureCard isAward">
-              <div className="desktopFeatureIcon">★</div>
-
-              <strong>
-                Premiação do trimestre
-              </strong>
-
-              <small>
-                Reconhecimento para celebrar resultados
-                e conquistas.
-              </small>
-            </article>
-
-            <article className="desktopFeatureCard">
-              <div className="desktopFeatureIcon">♫</div>
-
-              <strong>
-                Pagodinho e boa energia
-              </strong>
-
-              <small>
-                Música, drinks e celebração do começo ao fim.
-              </small>
-            </article>
-
+          <section className="desktopHighlights">
+            {highlights.map((item) => (
+              <article key={item.number}>
+                <b>{item.number}</b>
+                <div>
+                  <strong>{item.title}</strong>
+                  <small>{item.text}</small>
+                </div>
+              </article>
+            ))}
           </section>
-
-          <footer className="desktopFooterLive">
-
-            <img
-              className="desktopFooterLogo"
-              src="/rocha-logo-footer.png"
-              alt="Rocha Empreendimentos"
-            />
-
-            <div className="desktopFooterDivider" />
-
-            <p>
-              Mais que empreendimentos, construímos pessoas,
-              parcerias e novos amanhãs.
-            </p>
-
-            <span className="desktopFooterSignature">
-              Tardezinha com a Rocha
-            </span>
-
-          </footer>
-
         </div>
       </section>
-
     </main>
   );
 }

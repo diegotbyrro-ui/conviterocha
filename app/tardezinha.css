@@ -1,6 +1,6 @@
-:root{
+﻿:root{
   --ref-red:#ff1739;
-  --ref-red-2:#ff3b35;
+  --ref-red-2:#ff3149;
   --ref-navy:#00182f;
   --ref-navy-2:#031d38;
   --ref-card:#052844;
@@ -10,11 +10,26 @@
 
 *{box-sizing:border-box}
 
-.dualLayoutPage{
-  width:100%;
+html,body{
   margin:0;
+  min-width:320px;
+  background:#000814;
+}
+
+body{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  color:#fff;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.tardezinhaPage{
+  width:100%;
   overflow-x:hidden;
-  background:#00182f;
+  background:#000814;
 }
 
 /* =========================================================
@@ -24,16 +39,13 @@
 .mobileExperience{
   display:block;
   width:100%;
-  margin:0;
   background:
     radial-gradient(circle at 85% 0%,rgba(255,31,57,.17),transparent 28%),
     linear-gradient(180deg,#00182f 0%,#001326 100%);
   color:#fff;
-  font-family:"Helvetica Neue",Arial,sans-serif;
 }
 
 .mobileHeroFrame{
-  position:relative;
   width:100%;
   overflow:hidden;
   background:#00182f;
@@ -41,14 +53,12 @@
 }
 
 .mobileHeroImage{
-  display:block;
   width:100%;
   height:auto;
 }
 
 .mobileContent{
   width:100%;
-  margin:0;
   padding:18px 16px 30px;
 }
 
@@ -99,7 +109,6 @@
   position:relative;
   z-index:1;
   margin:0;
-  max-width:34rem;
   color:#d9e2eb;
   font-size:14px;
   line-height:1.52;
@@ -111,8 +120,7 @@
   padding:20px 16px 18px;
   border:2px solid var(--ref-red);
   border-radius:20px;
-  background:
-    linear-gradient(180deg,rgba(4,35,63,.98),rgba(1,23,44,.98));
+  background:linear-gradient(180deg,rgba(4,35,63,.98),rgba(1,23,44,.98));
   box-shadow:
     0 0 28px rgba(255,23,57,.10),
     0 18px 38px rgba(0,0,0,.23);
@@ -149,7 +157,6 @@
   line-height:1.45;
 }
 
-/* Form mobile: deixa de ser overlay e passa a ser um campo real grande */
 .mobileInviteCard .referenceCodeControl.isMobile{
   position:relative;
   left:auto;
@@ -172,7 +179,6 @@
   background:#062744;
   color:#fff;
   box-shadow:none;
-  font-family:"Helvetica Neue",Arial,sans-serif;
   font-size:16px;
   font-weight:500;
   letter-spacing:.01em;
@@ -280,8 +286,7 @@
   padding:14px 13px;
   border:1px solid rgba(255,255,255,.075);
   border-radius:16px;
-  background:
-    linear-gradient(180deg,rgba(7,43,75,.96),rgba(3,29,54,.96));
+  background:linear-gradient(180deg,rgba(7,43,75,.96),rgba(3,29,54,.96));
 }
 
 .mobileHighlights b{
@@ -318,21 +323,13 @@
   border-top:1px solid rgba(255,255,255,.10);
 }
 
-.mobileFooter strong{
-  display:inline-block;
-  margin-right:6px;
-  color:#fff;
-  font-size:20px;
-  letter-spacing:-.035em;
-}
-
-.mobileFooter span{
-  color:#aebdcb;
-  font-size:11px;
+.mobileFooterLogo{
+  width:min(280px,100%);
+  height:auto;
 }
 
 .mobileFooter p{
-  margin:8px 0 0;
+  margin:10px 0 0;
   color:#8597a9;
   font-size:10px;
   line-height:1.45;
@@ -341,114 +338,412 @@
 }
 
 /* =========================================================
-   DESKTOP / TABLET ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â mantÃƒÆ’Ã‚Â©m o layout aprovado
+   DESKTOP
    ========================================================= */
 
-.artboard{
-  position:relative;
-  margin:0 auto;
-  overflow:hidden;
-  background:#00182f;
-}
-
-.artboardImage{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:fill;
-  display:block;
-  user-select:none;
-  pointer-events:none;
-}
-
-.formOverlay{
-  position:absolute;
-  inset:0;
-  z-index:10;
-}
-
-.artboardDesktop{
+.desktopExperience{
   display:none;
 }
 
-.referenceCodeControl{
-  position:absolute;
+@media (min-width:900px){
+  .mobileExperience{
+    display:none;
+  }
+
+  .desktopExperience{
+    position:relative;
+    display:block;
+    min-height:100vh;
+    overflow:hidden;
+    background:#001326;
+  }
+
+  .desktopScene{
+    position:absolute;
+    inset:0;
+    background-position:right center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    transform:scale(1.03);
+  }
+
+  .desktopWrap{
+    position:relative;
+    z-index:2;
+    width:min(1440px,92vw);
+    margin:0 auto;
+    padding:36px 0 44px;
+  }
+
+  .desktopTopbar{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:34px;
+  }
+
+  .desktopLogo{
+    width:360px;
+    max-width:33vw;
+    filter:drop-shadow(0 10px 24px rgba(0,0,0,.25));
+  }
+
+  .desktopTopline{
+    display:inline-flex;
+    align-items:center;
+    gap:18px;
+    margin-top:18px;
+    color:#f0f4f8;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:.18em;
+    white-space:nowrap;
+  }
+
+  .desktopTopline::after{
+    content:"";
+    width:58px;
+    height:2px;
+    background:var(--ref-red);
+    border-radius:999px;
+  }
+
+  .desktopHeroGrid{
+    display:grid;
+    grid-template-columns:minmax(420px,620px) 1fr;
+    align-items:end;
+    min-height:420px;
+  }
+
+  .desktopLeft{
+    max-width:620px;
+    padding-top:8px;
+  }
+
+  .desktopEyebrow{
+    display:block;
+    margin-bottom:12px;
+    color:var(--ref-red);
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:.20em;
+  }
+
+  .desktopTitle{
+    margin:0;
+    color:#fff;
+    font-size:clamp(72px,7vw,114px);
+    line-height:.88;
+    letter-spacing:-.05em;
+    text-transform:uppercase;
+  }
+
+  .desktopTitle span{
+    display:block;
+    margin-top:10px;
+    color:var(--ref-red);
+    font-size:clamp(42px,4.4vw,76px);
+    line-height:.90;
+    font-weight:900;
+    text-transform:none;
+    letter-spacing:-.04em;
+    font-style:italic;
+  }
+
+  .desktopSubtitle{
+    margin:18px 0 12px;
+    color:#fff;
+    font-size:clamp(28px,2.1vw,42px);
+    line-height:1.06;
+    letter-spacing:-.03em;
+  }
+
+  .desktopDescription{
+    max-width:560px;
+    margin:0;
+    color:#e0e7ee;
+    font-size:clamp(18px,1.15vw,22px);
+    line-height:1.45;
+  }
+
+  .desktopAwardPill{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    margin-top:26px;
+    padding:12px 18px;
+    border:1px solid rgba(255,23,57,.85);
+    border-radius:999px;
+    background:rgba(4,34,62,.72);
+    box-shadow:0 14px 34px rgba(0,0,0,.18);
+  }
+
+  .desktopAwardPill span{
+    display:grid;
+    place-items:center;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:var(--ref-red);
+    color:#fff;
+    font-size:14px;
+    line-height:1;
+  }
+
+  .desktopAwardPill strong{
+    color:#fff;
+    font-size:15px;
+    font-weight:900;
+    letter-spacing:.14em;
+  }
+
+  .desktopInviteCard{
+    width:min(820px,58vw);
+    margin:34px auto 18px;
+    padding:16px 24px 20px;
+    border:2px solid var(--ref-red);
+    border-radius:24px;
+    background:linear-gradient(180deg,rgba(4,35,63,.94),rgba(1,23,44,.94));
+    box-shadow:
+      0 0 36px rgba(255,23,57,.10),
+      0 24px 48px rgba(0,0,0,.22);
+  }
+
+  .desktopInviteHead{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:8px;
+  }
+
+  .desktopInviteHead span{
+    color:var(--ref-red);
+    font-size:24px;
+    font-weight:900;
+  }
+
+  .desktopInviteHead strong{
+    color:#fff;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:.12em;
+  }
+
+  .desktopInviteCard > p{
+    margin:0 0 14px;
+    text-align:center;
+    color:#d8e2eb;
+    font-size:15px;
+    line-height:1.45;
+  }
+
+  .desktopInviteForm .referenceCodeControl.isDesktop{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:100%;
+    height:56px;
+  }
+
+  .desktopInviteForm .referenceCodeInput{
+    position:absolute;
+    left:0;
+    top:0;
+    width:calc(100% - 70px);
+    height:56px;
+    padding:0 20px;
+    border:1px solid rgba(196,213,229,.58);
+    border-radius:16px 0 0 16px;
+    outline:none;
+    background:#062744;
+    color:#fff;
+    box-shadow:none;
+    font-size:18px;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+
+  .desktopInviteForm .referenceCodeInput::placeholder{
+    color:#8296aa;
+    opacity:1;
+  }
+
+  .desktopInviteForm .referenceCodeInput:focus{
+    border-color:#fff;
+    box-shadow:0 0 0 2px rgba(255,255,255,.08);
+  }
+
+  .desktopInviteForm .referenceArrowButton{
+    position:absolute;
+    right:0;
+    top:0;
+    width:70px;
+    height:56px;
+    border:0;
+    border-radius:0 16px 16px 0;
+    background:linear-gradient(180deg,#ff2442,#ff1033);
+    color:#fff;
+    cursor:pointer;
+  }
+
+  .desktopInviteForm .referenceArrowButton span{
+    display:block;
+    color:#fff;
+    font-size:30px;
+    line-height:1;
+  }
+
+  .desktopInviteForm .referenceArrowButton:disabled{
+    opacity:.7;
+    cursor:wait;
+  }
+
+  .desktopInviteForm .referenceInlineError{
+    position:absolute;
+    left:0;
+    right:0;
+    top:62px;
+    text-align:center;
+    color:#ff9eaa;
+    font-size:12px;
+    font-weight:700;
+  }
+
+  .desktopInfoBar{
+    display:grid;
+    grid-template-columns:1fr 1fr 1.4fr;
+    gap:0;
+    align-items:stretch;
+    width:min(980px,78vw);
+    margin:26px auto 0;
+    padding:18px 12px;
+    border-radius:22px;
+    background:rgba(4,28,50,.76);
+    box-shadow:0 18px 42px rgba(0,0,0,.18);
+  }
+
+  .desktopInfoBar article{
+    position:relative;
+    padding:0 24px;
+  }
+
+  .desktopInfoBar article + article::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:10px;
+    bottom:10px;
+    width:1px;
+    background:rgba(255,255,255,.12);
+  }
+
+  .desktopInfoBar small{
+    display:block;
+    margin-bottom:4px;
+    color:var(--ref-red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.20em;
+  }
+
+  .desktopInfoBar strong{
+    display:block;
+    margin-bottom:3px;
+    color:#fff;
+    font-size:20px;
+    line-height:1.15;
+  }
+
+  .desktopInfoBar span{
+    display:block;
+    color:#cfdae4;
+    font-size:14px;
+    line-height:1.35;
+  }
+
+  .desktopHighlights{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:20px;
+  }
+
+  .desktopHighlights article{
+    display:flex;
+    gap:14px;
+    min-height:156px;
+    padding:18px 16px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    background:linear-gradient(180deg,rgba(7,43,75,.92),rgba(3,29,54,.92));
+    box-shadow:0 16px 32px rgba(0,0,0,.12);
+  }
+
+  .desktopHighlights b{
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    border:1px solid rgba(255,23,57,.70);
+    border-radius:50%;
+    color:var(--ref-red);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.08em;
+  }
+
+  .desktopHighlights strong{
+    display:block;
+    margin-bottom:8px;
+    color:#fff;
+    font-size:18px;
+    line-height:1.18;
+  }
+
+  .desktopHighlights small{
+    display:block;
+    color:#b8c5d1;
+    font-size:14px;
+    line-height:1.45;
+  }
 }
 
-.referenceCodeControl.isDesktop{
-  left:28.05%;
-  top:65.35%;
-  width:44%;
-  height:5.53%;
-}
+@media (min-width:900px) and (max-width:1260px){
+  .desktopLogo{
+    width:300px;
+  }
 
-.referenceCodeInput{
-  position:absolute;
-  left:0;
-  top:0;
-  width:86.4%;
-  height:100%;
-  border:0;
-  border-radius:999px;
-  outline:none;
-  background:rgba(5,29,52,.985);
-  color:#d8e2ec;
-  box-shadow:inset 0 0 0 1px rgba(173,194,214,.55);
-  padding:0 2.2%;
-  font-family:"Helvetica Neue",Arial,sans-serif;
-  font-weight:400;
-  letter-spacing:.01em;
-}
+  .desktopHeroGrid{
+    grid-template-columns:minmax(360px,530px) 1fr;
+    min-height:360px;
+  }
 
-.isDesktop .referenceCodeInput{
-  font-size:clamp(12px,.95vw,17px);
-}
+  .desktopTitle{
+    font-size:clamp(58px,6.4vw,92px);
+  }
 
-.referenceCodeInput::placeholder{
-  color:#718197;
-  opacity:1;
-}
+  .desktopTitle span{
+    font-size:clamp(36px,4vw,58px);
+  }
 
-.referenceCodeInput:focus{
-  box-shadow:
-    inset 0 0 0 1px rgba(215,228,239,.75),
-    0 0 0 2px rgba(255,23,57,.12);
-}
+  .desktopSubtitle{
+    font-size:clamp(24px,1.9vw,34px);
+  }
 
-.referenceArrowButton{
-  position:absolute;
-  right:0;
-  top:0;
-  width:17.1%;
-  height:100%;
-  border:0;
-  border-radius:999px;
-  background:transparent;
-  color:transparent;
-  cursor:pointer;
-}
+  .desktopDescription{
+    font-size:16px;
+  }
 
-.referenceArrowButton span{display:none}
-
-.referenceInlineError{
-  position:absolute;
-  left:0;
-  right:0;
-  top:112%;
-  text-align:center;
-  color:#ff8a97;
-  font-family:"Helvetica Neue",Arial,sans-serif;
-  font-weight:700;
-  text-shadow:0 1px 2px rgba(0,0,0,.65);
-}
-
-.isDesktop .referenceInlineError{
-  font-size:clamp(9px,.75vw,12px);
+  .desktopHighlights{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
 /* =========================================================
-   MODAL DE CONFIRMAÃƒÆ’Ã¢â‚¬Â¡ÃƒÆ’Ã†â€™O
+   MODAL DE CONFIRMAÇÃO
    ========================================================= */
 
 .registrationOverlay{
@@ -475,7 +770,6 @@
     linear-gradient(180deg,#052845 0%,#011b34 100%);
   color:#fff;
   box-shadow:0 30px 90px rgba(0,0,0,.50);
-  font-family:"Helvetica Neue",Arial,sans-serif;
 }
 
 .registrationClose{
@@ -492,10 +786,13 @@
   cursor:pointer;
 }
 
-.registrationHead{padding-right:48px;margin-bottom:24px}
+.registrationHead{
+  padding-right:48px;
+  margin-bottom:24px;
+}
 
 .registrationHead span,
-.registrationSuccess>span{
+.registrationSuccess > span{
   display:block;
   color:var(--ref-red);
   font-size:10px;
@@ -546,7 +843,9 @@
   box-shadow:0 0 0 2px rgba(255,23,57,.10);
 }
 
-.registrationCard select option{color:#111}
+.registrationCard select option{
+  color:#111;
+}
 
 .registrationCard .twoCols{
   display:grid;
@@ -555,18 +854,18 @@
 }
 
 .registrationCard .consent{
-  display:flex!important;
+  display:flex !important;
   gap:10px;
   align-items:flex-start;
-  color:#b8c5d0!important;
-  font-weight:400!important;
+  color:#b8c5d0 !important;
+  font-weight:400 !important;
   line-height:1.4;
 }
 
 .registrationCard .consent input{
-  width:16px!important;
-  height:16px!important;
-  margin:1px 0 0!important;
+  width:16px !important;
+  height:16px !important;
+  margin:1px 0 0 !important;
   flex:0 0 auto;
   accent-color:var(--ref-red);
 }
@@ -598,74 +897,22 @@
 }
 
 .hpField{
-  position:absolute!important;
-  left:-10000px!important;
-  width:1px!important;
-  height:1px!important;
-  overflow:hidden!important;
-  opacity:0!important;
-  pointer-events:none!important;
+  position:absolute !important;
+  left:-10000px !important;
+  width:1px !important;
+  height:1px !important;
+  overflow:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
 }
 
-.registrationSuccess{text-align:center}
-
-.successCheck{
-  width:64px;
-  height:64px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 20px;
-  border-radius:50%;
-  background:var(--ref-red);
-  font-size:30px;
-  font-weight:900;
+.registrationSuccess{
+  text-align:center;
 }
 
-.registrationSuccess h3{
-  margin:12px 0;
-  font-size:32px;
-  line-height:1.05;
-}
-
-.registrationSuccess p{
-  color:#c4d0da;
-  margin:0 0 24px;
-}
-
-/* =========================================================
-   BREAKPOINTS
-   ========================================================= */
-
-@media (min-width:900px){
-  .mobileExperience{
-    display:none;
-  }
-
-  .artboardDesktop{
-    display:block;
-    width:100vw;
-    max-width:none;
-    aspect-ratio:1672 / 941;
-    margin:0;
-    border-radius:0;
-    box-shadow:none;
-  }
-}
-
-@media (max-width:899px){
-  .artboardDesktop{
-    display:none;
-  }
-}
-
-@media (max-width:620px){
-  .registrationOverlay{
-    padding:12px;
-  }
-
+@media (max-width:640px){
   .registrationCard{
     padding:26px 18px 20px;
-    border-radius:18px;
   }
 
   .registrationCard .twoCols{
@@ -681,1043 +928,3 @@
     font-size:26px;
   }
 }
-
-@media (max-width:390px){
-  .mobileContent{
-    padding-left:13px;
-    padding-right:13px;
-  }
-
-  .mobileAwardCard h2{
-    font-size:25px;
-  }
-
-  .mobileInviteCard h3{
-    font-size:19px;
-  }
-
-  .mobileHighlights article{
-    min-height:150px;
-  }
-}
-
-/* MOBILE_FOOTER_LOGO_V2_START */
-
-.mobileFooter{
-  margin:22px 0 0 !important;
-  padding:22px 4px 8px !important;
-  border-top:1px solid rgba(255,255,255,.10) !important;
-
-  display:grid !important;
-  grid-template-columns:118px 1px 1fr !important;
-  align-items:center !important;
-  gap:14px !important;
-}
-
-.mobileFooterLogo{
-  display:block !important;
-  width:118px !important;
-  height:auto !important;
-  max-width:100% !important;
-  object-fit:contain !important;
-}
-
-.mobileFooterDivider{
-  width:1px !important;
-  height:44px !important;
-  background:rgba(255,255,255,.25) !important;
-}
-
-.mobileFooter .mobileFooterTagline{
-  margin:0 !important;
-  padding:0 !important;
-
-  color:#aebdcb !important;
-
-  font-size:9px !important;
-  line-height:1.55 !important;
-  font-weight:600 !important;
-
-  letter-spacing:.075em !important;
-  text-transform:uppercase !important;
-
-  max-width:220px !important;
-}
-
-@media (max-width:360px){
-
-  .mobileFooter{
-    grid-template-columns:1fr !important;
-    justify-items:center !important;
-    text-align:center !important;
-    gap:10px !important;
-  }
-
-  .mobileFooterLogo{
-    width:116px !important;
-  }
-
-  .mobileFooterDivider{
-    width:72px !important;
-    height:1px !important;
-  }
-
-  .mobileFooter .mobileFooterTagline{
-    max-width:275px !important;
-    text-align:center !important;
-  }
-}
-
-/* MOBILE_FOOTER_LOGO_V2_END */
-
-/* DESKTOP_LIVE_V1_START */
-
-.desktopExperience{
-  display:none;
-}
-
-@media (min-width:900px){
-
-  .desktopExperience{
-    position:relative;
-    display:block;
-    width:100%;
-    min-height:100vh;
-    overflow:hidden;
-    isolation:isolate;
-
-    color:#fff;
-
-    background:#00172e;
-
-    font-family:
-      "Helvetica Neue",
-      Arial,
-      sans-serif;
-  }
-
-  /* ARTE USADA APENAS COMO CENARIO */
-
-  .desktopExperience::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    z-index:-3;
-
-    background-image:
-      url("/tardezinha-desktop-final-20261005.png");
-
-    background-size:cover;
-    background-position:center top;
-    background-repeat:no-repeat;
-
-    transform:scale(1.015);
-  }
-
-  /* ESCURECE AS AREAS COM TEXTO DA ARTE ANTIGA */
-
-  .desktopExperience::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    z-index:-2;
-
-    pointer-events:none;
-
-    background:
-
-      linear-gradient(
-        90deg,
-        rgba(0,19,39,.99) 0%,
-        rgba(0,19,39,.97) 28%,
-        rgba(0,19,39,.88) 43%,
-        rgba(0,19,39,.24) 62%,
-        rgba(0,19,39,.06) 100%
-      ),
-
-      linear-gradient(
-        180deg,
-        rgba(0,12,28,.03) 0%,
-        rgba(0,12,28,.08) 42%,
-        rgba(0,19,39,.88) 60%,
-        rgba(0,19,39,.99) 100%
-      );
-  }
-
-  .desktopShell{
-    width:min(1500px,92vw);
-    margin:0 auto;
-
-    padding:
-      34px
-      0
-      28px;
-  }
-
-  /* HEADER */
-
-  .desktopHeaderLive{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:28px;
-
-    margin-bottom:26px;
-  }
-
-  .desktopHeaderLogo{
-    display:block;
-
-    width:clamp(
-      170px,
-      14vw,
-      230px
-    );
-
-    height:auto;
-  }
-
-  .desktopHeaderMark{
-    display:flex;
-    align-items:center;
-
-    gap:14px;
-
-    color:#e7ebf0;
-
-    font-size:
-      clamp(
-        9px,
-        .72vw,
-        12px
-      );
-
-    font-weight:700;
-
-    letter-spacing:.22em;
-
-    text-transform:uppercase;
-  }
-
-  .desktopHeaderMark::after{
-    content:"";
-
-    width:46px;
-    height:2px;
-
-    background:#ff1739;
-  }
-
-  /* HERO */
-
-  .desktopHeroLive{
-    display:grid;
-
-    grid-template-columns:
-      minmax(470px,.92fr)
-      minmax(460px,1.08fr);
-
-    align-items:center;
-
-    min-height:350px;
-  }
-
-  .desktopHeroCopyLive{
-    max-width:690px;
-
-    padding:
-      10px
-      0
-      22px;
-  }
-
-  .desktopEyebrowLive{
-    display:block;
-
-    margin-bottom:8px;
-
-    color:#ff1739;
-
-    font-size:
-      clamp(
-        15px,
-        1.3vw,
-        22px
-      );
-
-    font-weight:900;
-
-    letter-spacing:.23em;
-
-    text-transform:uppercase;
-  }
-
-  .desktopTitleLive{
-    margin:0;
-
-    color:#fff;
-
-    font-size:
-      clamp(
-        64px,
-        6.1vw,
-        106px
-      );
-
-    line-height:.82;
-
-    font-weight:950;
-
-    letter-spacing:-.055em;
-
-    text-transform:uppercase;
-
-    text-shadow:
-      0 5px 18px
-      rgba(0,0,0,.28);
-  }
-
-  .desktopScriptLive{
-    display:block;
-
-    width:max-content;
-
-    margin:
-      -1px
-      0
-      17px
-      4px;
-
-    color:#ff1739;
-
-    font-family:
-      "Brush Script MT",
-      "Segoe Script",
-      cursive;
-
-    font-size:
-      clamp(
-        54px,
-        5.3vw,
-        92px
-      );
-
-    line-height:.92;
-
-    font-weight:700;
-
-    letter-spacing:-.055em;
-
-    transform:rotate(-2deg);
-
-    text-shadow:
-      0 4px 16px
-      rgba(0,0,0,.25);
-  }
-
-  .desktopLeadLive{
-    margin:
-      0
-      0
-      8px;
-
-    color:#f3f5f7;
-
-    font-size:
-      clamp(
-        21px,
-        1.7vw,
-        30px
-      );
-
-    line-height:1.16;
-
-    font-weight:300;
-  }
-
-  .desktopLeadLive strong{
-    font-weight:800;
-  }
-
-  .desktopBodyLive{
-    max-width:620px;
-
-    margin:0;
-
-    color:#e3e8ed;
-
-    font-size:
-      clamp(
-        14px,
-        1.08vw,
-        18px
-      );
-
-    line-height:1.45;
-  }
-
-  /* PREMIAÇÃO */
-
-  .desktopAwardPill{
-    display:inline-flex;
-    align-items:center;
-
-    gap:11px;
-
-    margin-top:18px;
-
-    padding:
-      9px
-      15px;
-
-    border:
-      1px solid
-      rgba(255,23,57,.58);
-
-    border-radius:999px;
-
-    background:
-      rgba(3,31,57,.88);
-
-    box-shadow:
-      0 9px 26px
-      rgba(0,0,0,.18);
-  }
-
-  .desktopAwardPill b{
-    display:grid;
-    place-items:center;
-
-    width:30px;
-    height:30px;
-
-    border-radius:50%;
-
-    background:#ff1739;
-
-    font-size:15px;
-  }
-
-  .desktopAwardPill span{
-    color:#fff;
-
-    font-size:
-      clamp(
-        11px,
-        .82vw,
-        14px
-      );
-
-    font-weight:900;
-
-    letter-spacing:.11em;
-
-    text-transform:uppercase;
-  }
-
-  .desktopVisualLive{
-    min-height:320px;
-  }
-
-  /* FORMULARIO */
-
-  .desktopInviteLive{
-    position:relative;
-    z-index:3;
-
-    width:min(
-      840px,
-      68vw
-    );
-
-    margin:
-      -4px
-      auto
-      17px;
-
-    padding:
-      15px
-      30px
-      17px;
-
-    border:
-      2px solid
-      #ff1739;
-
-    border-radius:22px;
-
-    background:
-      radial-gradient(
-        circle at 84% 0%,
-        rgba(255,23,57,.10),
-        transparent 30%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(4,34,62,.98),
-        rgba(1,24,46,.98)
-      );
-
-    box-shadow:
-      0 18px 48px rgba(0,0,0,.22),
-      0 0 28px rgba(255,23,57,.08);
-
-    text-align:center;
-  }
-
-  .desktopInviteHead{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:10px;
-
-    margin-bottom:4px;
-  }
-
-  .desktopInviteLink{
-    color:#ff1739;
-
-    font-size:25px;
-
-    line-height:1;
-  }
-
-  .desktopInviteHead strong{
-    font-size:
-      clamp(
-        13px,
-        1.05vw,
-        18px
-      );
-
-    line-height:1;
-
-    letter-spacing:.12em;
-
-    text-transform:uppercase;
-  }
-
-  .desktopInviteLive > p{
-    margin:
-      0
-      0
-      10px;
-
-    color:#d3dce5;
-
-    font-size:
-      clamp(
-        10px,
-        .78vw,
-        13px
-      );
-  }
-
-  .desktopInviteLive
-  .referenceCodeControl.isDesktop{
-    position:relative;
-
-    left:auto;
-    top:auto;
-
-    width:100%;
-    height:50px;
-
-    margin:0;
-  }
-
-  .desktopInviteLive
-  .referenceCodeInput{
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:
-      calc(100% - 82px);
-
-    height:50px;
-
-    padding:
-      0
-      18px;
-
-    border:
-      1px solid
-      rgba(189,207,223,.54);
-
-    border-radius:
-      15px
-      0
-      0
-      15px;
-
-    background:#062744;
-
-    color:#fff;
-
-    box-shadow:none;
-
-    font-size:15px;
-  }
-
-  .desktopInviteLive
-  .referenceArrowButton{
-    position:absolute;
-
-    right:0;
-    top:0;
-
-    display:grid;
-    place-items:center;
-
-    width:82px;
-    height:50px;
-
-    border:0;
-
-    border-radius:
-      0
-      15px
-      15px
-      0;
-
-    background:
-      linear-gradient(
-        180deg,
-        #ff2442,
-        #ff1033
-      );
-
-    color:#fff;
-  }
-
-  .desktopInviteLive
-  .referenceArrowButton span{
-    display:block;
-
-    color:#fff;
-
-    font-size:26px;
-  }
-
-  .desktopInviteLive
-  .referenceInlineError{
-    top:56px;
-
-    color:#ff9aa6;
-
-    font-size:11px;
-  }
-
-  /* DATA / HORARIO / LOCAL */
-
-  .desktopMetaLive{
-    display:grid;
-
-    grid-template-columns:
-      1fr
-      1fr
-      1.55fr;
-
-    width:min(
-      960px,
-      76vw
-    );
-
-    margin:
-      0
-      auto
-      17px;
-
-    border-top:
-      1px solid
-      rgba(255,255,255,.05);
-
-    border-bottom:
-      1px solid
-      rgba(255,255,255,.08);
-  }
-
-  .desktopMetaItem{
-    position:relative;
-
-    display:flex;
-    align-items:center;
-
-    gap:13px;
-
-    min-height:76px;
-
-    padding:
-      11px
-      24px;
-  }
-
-  .desktopMetaItem
-  + .desktopMetaItem::before{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:17px;
-    bottom:17px;
-
-    width:1px;
-
-    background:
-      rgba(255,255,255,.36);
-  }
-
-  .desktopMetaIcon{
-    flex:0 0 auto;
-
-    display:grid;
-    place-items:center;
-
-    width:42px;
-    height:42px;
-
-    border:
-      3px solid
-      #ff1739;
-
-    border-radius:50%;
-
-    color:#ff1739;
-
-    font-size:17px;
-
-    font-weight:900;
-  }
-
-  .desktopMetaText span{
-    display:block;
-
-    margin-bottom:3px;
-
-    color:#c8d3dd;
-
-    font-size:9px;
-
-    font-weight:800;
-
-    letter-spacing:.20em;
-
-    text-transform:uppercase;
-  }
-
-  .desktopMetaText strong{
-    display:block;
-
-    color:#fff;
-
-    font-size:
-      clamp(
-        14px,
-        1.05vw,
-        18px
-      );
-
-    line-height:1.12;
-  }
-
-  .desktopMetaText small{
-    display:block;
-
-    margin-top:2px;
-
-    color:#c7d0d9;
-
-    font-size:
-      clamp(
-        10px,
-        .74vw,
-        12px
-      );
-
-    line-height:1.25;
-  }
-
-  /* CARDS */
-
-  .desktopCardsLive{
-    display:grid;
-
-    grid-template-columns:
-      repeat(4,1fr);
-
-    gap:12px;
-
-    width:min(
-      1280px,
-      88vw
-    );
-
-    margin:0 auto;
-  }
-
-  .desktopFeatureCard{
-    position:relative;
-
-    min-height:126px;
-
-    padding:
-      18px
-      16px
-      15px
-      72px;
-
-    overflow:hidden;
-
-    border:
-      1px solid
-      rgba(27,91,139,.78);
-
-    border-radius:14px;
-
-    background:
-      radial-gradient(
-        circle at 6% 4%,
-        rgba(255,23,57,.07),
-        transparent 30%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(7,42,73,.98),
-        rgba(3,29,54,.98)
-      );
-
-    box-shadow:
-      0 10px 24px
-      rgba(0,0,0,.13);
-  }
-
-  .desktopFeatureCard.isAward{
-    border-color:
-      rgba(255,23,57,.45);
-
-    background:
-      radial-gradient(
-        circle at 92% 0%,
-        rgba(255,40,48,.16),
-        transparent 42%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(8,45,76,.98),
-        rgba(3,29,54,.98)
-      );
-  }
-
-  .desktopFeatureIcon{
-    position:absolute;
-
-    left:15px;
-    top:18px;
-
-    display:grid;
-    place-items:center;
-
-    width:44px;
-    height:44px;
-
-    border:
-      3px solid
-      #ff1739;
-
-    border-radius:50%;
-
-    color:#ff1739;
-
-    font-size:17px;
-
-    font-weight:900;
-  }
-
-  .desktopFeatureCard strong{
-    display:block;
-
-    margin-bottom:7px;
-
-    color:#fff;
-
-    font-size:
-      clamp(
-        11px,
-        .88vw,
-        15px
-      );
-
-    line-height:1.18;
-
-    text-transform:uppercase;
-  }
-
-  .desktopFeatureCard small{
-    display:block;
-
-    color:#cbd5de;
-
-    font-size:
-      clamp(
-        9px,
-        .68vw,
-        11px
-      );
-
-    line-height:1.42;
-  }
-
-  /* FOOTER */
-
-  .desktopFooterLive{
-    display:grid;
-
-    grid-template-columns:
-      auto
-      1px
-      1fr
-      auto;
-
-    align-items:center;
-
-    gap:20px;
-
-    width:min(
-      1280px,
-      88vw
-    );
-
-    margin:
-      18px
-      auto
-      0;
-
-    padding:
-      17px
-      8px
-      0;
-
-    border-top:
-      1px solid
-      rgba(255,255,255,.08);
-  }
-
-  .desktopFooterLogo{
-    display:block;
-
-    width:150px;
-
-    height:auto;
-  }
-
-  .desktopFooterDivider{
-    width:1px;
-    height:42px;
-
-    background:
-      rgba(255,255,255,.25);
-  }
-
-  .desktopFooterLive p{
-    margin:0;
-
-    color:#b4c2ce;
-
-    font-size:9px;
-
-    font-weight:700;
-
-    line-height:1.6;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-  }
-
-  .desktopFooterSignature{
-    color:#fff;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:.20em;
-
-    text-transform:uppercase;
-
-    white-space:nowrap;
-  }
-}
-
-/* TABLET HORIZONTAL */
-
-@media
-(min-width:900px)
-and
-(max-width:1180px){
-
-  .desktopShell{
-    width:94vw;
-  }
-
-  .desktopHeroLive{
-    grid-template-columns:
-      1fr
-      .9fr;
-
-    min-height:330px;
-  }
-
-  .desktopTitleLive{
-    font-size:
-      clamp(
-        58px,
-        7vw,
-        82px
-      );
-  }
-
-  .desktopScriptLive{
-    font-size:
-      clamp(
-        49px,
-        6.4vw,
-        72px
-      );
-  }
-
-  .desktopInviteLive{
-    width:74vw;
-  }
-
-  .desktopMetaLive{
-    width:88vw;
-  }
-
-  .desktopCardsLive,
-  .desktopFooterLive{
-    width:92vw;
-  }
-
-  .desktopFeatureCard{
-    min-height:136px;
-
-    padding-left:62px;
-  }
-
-  .desktopFeatureIcon{
-    width:38px;
-    height:38px;
-  }
-}
-
-/* DESKTOP_LIVE_V1_END */
