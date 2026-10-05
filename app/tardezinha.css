@@ -1577,7 +1577,7 @@ img{
        Aqui está a principal correção:
        grande, mas SEM jogar metade dele fora da tela.
     */
-    left:-105px !important;
+    left:-285px !important;
     top:5px !important;
 
     right:auto !important;
@@ -1657,7 +1657,7 @@ img{
 @media (min-width:900px) and (max-width:1260px){
 
   .desktopTrophyArtV5{
-    left:-80px !important;
+    left:-155px !important;
     top:25px !important;
 
     width:470px !important;
