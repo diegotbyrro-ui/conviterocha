@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   --ref-red:#ff1739;
   --ref-red-2:#ff3149;
   --ref-navy:#00182f;
@@ -1577,7 +1577,7 @@ img{
        Aqui está a principal correção:
        grande, mas SEM jogar metade dele fora da tela.
     */
-    left:-285px !important;
+    left:-380px !important;
     top:5px !important;
 
     right:auto !important;
@@ -1670,3 +1670,4 @@ img{
 
 
 /* FORCE_DEPLOY_TROFEU_20261005-152453 */
+
