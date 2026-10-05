@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="artboard artboardDesktop" aria-label="Tardezinha com a Rocha - desktop">
         <img
           className="artboardImage"
-          src="/tardezinha-desktop.png"
+          src="/tardezinha-desktop-final-20261005.png"
           alt="Convite Tardezinha com a Rocha para desktop"
         />
         <div className="formOverlay formOverlayDesktop">
@@ -27,5 +27,6 @@ export default function HomePage() {
     </main>
   );
 }
+
 
 
