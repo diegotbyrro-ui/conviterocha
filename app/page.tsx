@@ -1,4 +1,4 @@
-﻿import InviteRegistrationForm from './InviteRegistrationForm';
+import InviteRegistrationForm from './InviteRegistrationForm';
 
 export default function HomePage() {
   return (
@@ -6,7 +6,7 @@ export default function HomePage() {
       <section className="artboard artboardMobile" aria-label="Tardezinha com a Rocha - celular">
         <img
           className="artboardImage"
-          src="/tardezinha-mobile.png"
+          src="/tardezinha-mobile-final-20261005.png"
           alt="Convite Tardezinha com a Rocha para celular"
         />
         <div className="formOverlay formOverlayMobile">
