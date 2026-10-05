@@ -1,4 +1,4 @@
-﻿:root{
+:root{
   --ref-red:#ff1739;
   --ref-navy:#00182f;
 }
@@ -60,12 +60,12 @@ html,body{
   height:3.78%;
 }
 
-/* FINAL desktop coordinates: full-width artboard, measured against approved 1672x941 artwork. */
+/* AJUSTE FINAL DESKTOP */
 .referenceCodeControl.isDesktop{
-  left:27.85%;
-  top:61.95%;
-  width:42.35%;
-  height:4.55%;
+  left:28.05%;
+  top:65.35%;
+  width:44.00%;
+  height:5.53%;
 }
 
 .referenceCodeInput{
@@ -184,7 +184,14 @@ html,body{
 .registrationHead strong{display:block;margin-top:8px;font-size:26px;line-height:1.15}
 .registrationHead small{display:block;margin-top:4px;color:#b9c6d2}
 
-.registrationCard form label{display:block;margin-bottom:16px;color:#dbe5ed;font-size:11px;font-weight:700}
+.registrationCard form label{
+  display:block;
+  margin-bottom:16px;
+  color:#dbe5ed;
+  font-size:11px;
+  font-weight:700
+}
+
 .registrationCard input,
 .registrationCard select{
   display:block;
@@ -200,21 +207,85 @@ html,body{
   font:inherit;
   font-size:13px;
 }
+
 .registrationCard input:focus,
-.registrationCard select:focus{border-color:var(--ref-red);box-shadow:0 0 0 2px rgba(255,23,57,.10)}
+.registrationCard select:focus{
+  border-color:var(--ref-red);
+  box-shadow:0 0 0 2px rgba(255,23,57,.10)
+}
+
 .registrationCard select option{color:#111}
 .registrationCard .twoCols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.registrationCard .consent{display:flex!important;gap:10px;align-items:flex-start;color:#b8c5d0!important;font-weight:400!important;line-height:1.4}
-.registrationCard .consent input{width:16px!important;height:16px!important;margin:1px 0 0!important;flex:0 0 auto;accent-color:var(--ref-red)}
+
+.registrationCard .consent{
+  display:flex!important;
+  gap:10px;
+  align-items:flex-start;
+  color:#b8c5d0!important;
+  font-weight:400!important;
+  line-height:1.4
+}
+
+.registrationCard .consent input{
+  width:16px!important;
+  height:16px!important;
+  margin:1px 0 0!important;
+  flex:0 0 auto;
+  accent-color:var(--ref-red)
+}
+
 .registrationSubmit,
-.registrationSuccess button{width:100%;height:52px;border:0;border-radius:12px;background:linear-gradient(90deg,#ff1638,#ff2946);color:#fff;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.registrationSuccess button{
+  width:100%;
+  height:52px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(90deg,#ff1638,#ff2946);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer
+}
+
 .registrationSubmit:disabled{opacity:.65;cursor:wait}
 .registrationError{margin:0 0 14px;color:#ff98a4;font-size:12px}
-.hpField{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+
+.hpField{
+  position:absolute!important;
+  left:-10000px!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important
+}
+
 .registrationSuccess{text-align:center}
-.successCheck{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 20px;border-radius:50%;background:var(--ref-red);font-size:30px;font-weight:900}
-.registrationSuccess h3{margin:12px 0;font-size:32px;line-height:1.05}
-.registrationSuccess p{color:#c4d0da;margin:0 0 24px}
+
+.successCheck{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 20px;
+  border-radius:50%;
+  background:var(--ref-red);
+  font-size:30px;
+  font-weight:900
+}
+
+.registrationSuccess h3{
+  margin:12px 0;
+  font-size:32px;
+  line-height:1.05
+}
+
+.registrationSuccess p{
+  color:#c4d0da;
+  margin:0 0 24px
+}
 
 @media (max-width:899px){
   .artboardMobile{display:block}
@@ -223,12 +294,14 @@ html,body{
 
 @media (min-width:900px){
   html,body,.dualLayoutPage{background:#00182f}
+
   .dualLayoutPage{
     padding:0;
     background:#00182f;
   }
 
   .artboardMobile{display:none}
+
   .artboardDesktop{
     display:block;
     width:100vw;
@@ -247,10 +320,3 @@ html,body{
   .registrationHead strong{font-size:22px}
   .registrationSuccess h3{font-size:26px}
 }
-
-
-
-
-
-
-
