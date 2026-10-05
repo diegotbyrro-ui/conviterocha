@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   --ref-red:#ff1739;
   --ref-navy:#00182f;
 }
@@ -247,3 +247,38 @@ html,body{
   .registrationHead strong{font-size:22px}
   .registrationSuccess h3{font-size:26px}
 }
+
+/* V12_WEEKDAY_FIX_START */
+.weekdayPatch{
+  position:absolute;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  font-family:"Helvetica Neue", Arial, sans-serif;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#eef4fb;
+  background:#00182f;
+  border-radius:6px;
+}
+
+.weekdayPatchMobile{
+  left:38.1%;
+  top:54.05%;
+  width:12.7%;
+  height:1.65%;
+  font-size:clamp(7px, 0.95vw, 11px);
+}
+
+.weekdayPatchDesktop{
+  left:24.18%;
+  top:65.64%;
+  width:8.85%;
+  height:2.8%;
+  font-size:clamp(9px, 0.78vw, 13px);
+}
+/* V12_WEEKDAY_FIX_END */
+
