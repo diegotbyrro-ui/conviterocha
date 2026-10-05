@@ -1,12 +1,13 @@
 import './styles.css';
 import './mobile-fixes.css';
 import './invite-system.css';
+import './tardezinha.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rocha + Corretores | Salão do Imóvel ADEMI 2026',
+  title: 'Tardezinha com a Rocha | Convite Especial',
   description:
-    'Convite exclusivo para corretores visitarem o stand da Rocha Empreendimentos no Salão do Imóvel ADEMI 2026.',
+    'Convite especial para a Tardezinha com a Rocha. Confirme sua presença para o encontro do dia 09 de outubro de 2026, às 17h.',
   robots: {
     index: false,
     follow: false,
