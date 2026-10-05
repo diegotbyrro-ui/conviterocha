@@ -1680,7 +1680,7 @@
 @media (min-width:1261px){
 
   .desktopAwardPill{
-    transform:translateX(150px) !important;
+    transform:translateX(260px) !important;
   }
 
 }
@@ -1689,7 +1689,7 @@
 @media (min-width:900px) and (max-width:1260px){
 
   .desktopAwardPill{
-    transform:translateX(90px) !important;
+    transform:translateX(150px) !important;
   }
 
 }
