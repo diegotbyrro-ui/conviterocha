@@ -1406,3 +1406,117 @@ img{
 }
 
 /* ========================================================== */
+
+
+/* TROFEU_OVERLAY_FIX_START */
+
+/*
+  O trofeu precisa ficar FORA do fluxo do grid.
+  Dessa forma ele não empurra o título nem o restante do layout.
+*/
+
+@media (min-width:900px){
+
+  .desktopHeroGrid{
+    position:relative;
+    isolation:isolate;
+  }
+
+  .desktopLeft{
+    position:relative;
+    z-index:3;
+  }
+
+  .desktopTrophyArt{
+    position:absolute !important;
+
+    /*
+      Lateral esquerda.
+      Ele invade um pouco para fora do container
+      para ocupar aquela área vazia.
+    */
+    left:-145px !important;
+    top:55px !important;
+    bottom:auto !important;
+
+    width:430px !important;
+    max-width:none !important;
+    height:auto !important;
+
+    /*
+      Fica atrás de todo o conteúdo.
+    */
+    z-index:1 !important;
+
+    /*
+      Aparência discreta.
+    */
+    opacity:.30 !important;
+
+    pointer-events:none !important;
+
+    /*
+      Não participa mais do grid.
+    */
+    grid-column:auto !important;
+    grid-row:auto !important;
+
+    /*
+      Integra melhor o troféu ao cenário.
+    */
+    mix-blend-mode:screen;
+
+    filter:
+      saturate(.95)
+      contrast(1.04)
+      drop-shadow(
+        0 25px 55px
+        rgba(255,23,57,.13)
+      );
+
+    /*
+      Faz o troféu desaparecer suavemente
+      em direção ao conteúdo.
+    */
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        rgba(0,0,0,.96) 0%,
+        rgba(0,0,0,.94) 30%,
+        rgba(0,0,0,.78) 52%,
+        rgba(0,0,0,.48) 69%,
+        rgba(0,0,0,.20) 84%,
+        rgba(0,0,0,.04) 94%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to right,
+        rgba(0,0,0,.96) 0%,
+        rgba(0,0,0,.94) 30%,
+        rgba(0,0,0,.78) 52%,
+        rgba(0,0,0,.48) 69%,
+        rgba(0,0,0,.20) 84%,
+        rgba(0,0,0,.04) 94%,
+        transparent 100%
+      );
+  }
+}
+
+
+/* TABLET */
+
+@media (min-width:900px) and (max-width:1260px){
+
+  .desktopTrophyArt{
+    left:-105px !important;
+    top:68px !important;
+
+    width:340px !important;
+
+    opacity:.24 !important;
+  }
+}
+
+/* TROFEU_OVERLAY_FIX_END */
