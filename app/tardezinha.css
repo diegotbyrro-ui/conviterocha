@@ -62,10 +62,10 @@ html,body{
 
 /* FINAL desktop coordinates: full-width artboard, measured against approved 1672x941 artwork. */
 .referenceCodeControl.isDesktop{
-  left:27.78%;
-  top:63.72%;
-  width:42.55%;
-  height:4.72%;
+  left:27.85%;
+  top:61.95%;
+  width:42.35%;
+  height:4.55%;
 }
 
 .referenceCodeInput{
@@ -247,6 +247,7 @@ html,body{
   .registrationHead strong{font-size:22px}
   .registrationSuccess h3{font-size:26px}
 }
+
 
 
 
