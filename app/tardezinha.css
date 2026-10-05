@@ -341,7 +341,7 @@
 }
 
 /* =========================================================
-   DESKTOP / TABLET — mantém o layout aprovado
+   DESKTOP / TABLET â€” mantÃ©m o layout aprovado
    ========================================================= */
 
 .artboard{
@@ -448,7 +448,7 @@
 }
 
 /* =========================================================
-   MODAL DE CONFIRMAÇÃO
+   MODAL DE CONFIRMAÃ‡ÃƒO
    ========================================================= */
 
 .registrationOverlay{
@@ -700,3 +700,72 @@
     min-height:150px;
   }
 }
+
+/* MOBILE_FOOTER_LOGO_V2_START */
+
+.mobileFooter{
+  margin:22px 0 0 !important;
+  padding:22px 4px 8px !important;
+  border-top:1px solid rgba(255,255,255,.10) !important;
+
+  display:grid !important;
+  grid-template-columns:118px 1px 1fr !important;
+  align-items:center !important;
+  gap:14px !important;
+}
+
+.mobileFooterLogo{
+  display:block !important;
+  width:118px !important;
+  height:auto !important;
+  max-width:100% !important;
+  object-fit:contain !important;
+}
+
+.mobileFooterDivider{
+  width:1px !important;
+  height:44px !important;
+  background:rgba(255,255,255,.25) !important;
+}
+
+.mobileFooter .mobileFooterTagline{
+  margin:0 !important;
+  padding:0 !important;
+
+  color:#aebdcb !important;
+
+  font-size:9px !important;
+  line-height:1.55 !important;
+  font-weight:600 !important;
+
+  letter-spacing:.075em !important;
+  text-transform:uppercase !important;
+
+  max-width:220px !important;
+}
+
+@media (max-width:360px){
+
+  .mobileFooter{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+    text-align:center !important;
+    gap:10px !important;
+  }
+
+  .mobileFooterLogo{
+    width:116px !important;
+  }
+
+  .mobileFooterDivider{
+    width:72px !important;
+    height:1px !important;
+  }
+
+  .mobileFooter .mobileFooterTagline{
+    max-width:275px !important;
+    text-align:center !important;
+  }
+}
+
+/* MOBILE_FOOTER_LOGO_V2_END */
