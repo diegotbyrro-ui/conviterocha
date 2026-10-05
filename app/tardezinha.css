@@ -1149,3 +1149,340 @@ img{
   }
 }
 
+
+/* === TROFEU HERO + PREMIACAO DESTAQUE === */
+
+/* HERO - garante área relativa */
+:is(.desktopHero, .heroSection, .heroDesktop, .tardezinhaHero, .heroScene, .heroWrap, .heroContainer, .landingHero){
+  position: relative;
+  overflow: hidden;
+}
+
+/* TROFEU DECORATIVO NO HERO */
+:is(.desktopHero, .heroSection, .heroDesktop, .tardezinhaHero, .heroScene, .heroWrap, .heroContainer, .landingHero)::before{
+  content:"";
+  position:absolute;
+  left:-12px;
+  bottom:-24px;
+  width:360px;
+  height:560px;
+  background-image:url("/trofeu-trimestre.png");
+  background-repeat:no-repeat;
+  background-position:left bottom;
+  background-size:contain;
+  opacity:.24;
+  filter:drop-shadow(0 18px 50px rgba(0,0,0,.35)) blur(.2px);
+  pointer-events:none;
+  z-index:0;
+
+  /* fade para ele desaparecer suavemente */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,.98) 30%,
+    rgba(0,0,0,.75) 55%,
+    rgba(0,0,0,.35) 75%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,.98) 30%,
+    rgba(0,0,0,.75) 55%,
+    rgba(0,0,0,.35) 75%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+/* conteúdo do hero fica acima do troféu */
+:is(.desktopHero, .heroSection, .heroDesktop, .tardezinhaHero, .heroScene, .heroWrap, .heroContainer, .landingHero) > *{
+  position:relative;
+  z-index:2;
+}
+
+/* se existir um bloco textual à esquerda, ele fica mais na frente ainda */
+:is(.heroCopy, .heroText, .heroContent, .heroLeft, .desktopHeroText, .tardezinhaHeroContent){
+  position:relative;
+  z-index:3;
+}
+
+/* PÍLULA "PREMIAÇÃO DO TRIMESTRE" MAIS FORTE */
+:is(.awardPill, .heroPill, .highlightPill, .premiacaoPill, .trophyPill, .pill){
+  background:linear-gradient(180deg, rgba(10,31,61,.95), rgba(7,21,42,.98)) !important;
+  border:1px solid rgba(255,23,57,.95) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,23,57,.22),
+    0 12px 30px rgba(255,23,57,.14),
+    inset 0 0 0 1px rgba(255,255,255,.03) !important;
+}
+
+/* GRID DOS CARDS */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *{
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+/* some a numeração antiga */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * [class*="index"],
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * [class*="Index"],
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * [class*="number"],
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * [class*="Number"],
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * [class*="badge"],
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * [class*="Badge"]{
+  display:none !important;
+}
+
+/* ELEMENTOS NO LUGAR DOS NÚMEROS */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *::before{
+  content:"";
+  position:absolute;
+  top:18px;
+  left:18px;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:1px solid rgba(255,23,57,.78);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    0 0 18px rgba(255,23,57,.15);
+  background:
+    radial-gradient(circle at center, rgba(255,23,57,.18) 0%, rgba(255,23,57,.08) 45%, rgba(255,23,57,0) 72%);
+  z-index:2;
+}
+
+/* símbolo interno */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *::after{
+  position:absolute;
+  top:27px;
+  left:31px;
+  font-size:15px;
+  line-height:1;
+  font-weight:700;
+  color:#ff1739;
+  z-index:3;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(1)::after{
+  content:"✦";
+}
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2)::after{
+  content:"★";
+}
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(3)::after{
+  content:"◆";
+}
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(4)::after{
+  content:"♪";
+}
+
+/* empurra texto para dar espaço ao elemento */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * h3,
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * h4,
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * strong{
+  padding-left:66px;
+  display:block;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * p{
+  padding-left:66px;
+}
+
+/* CARD DA PREMIAÇÃO = DESTAQUE PRINCIPAL */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  transform:translateY(-14px) scale(1.06);
+  border:1px solid rgba(255,23,57,.95) !important;
+  background:linear-gradient(180deg, rgba(11,36,69,.98), rgba(5,23,45,.98)) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,23,57,.24),
+    0 18px 40px rgba(255,23,57,.18),
+    inset 0 0 0 1px rgba(255,255,255,.03) !important;
+  z-index:5;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2):hover{
+  transform:translateY(-18px) scale(1.075);
+}
+
+/* selo de destaque */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .destaque-premiacao-label{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  position:relative;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) span,
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) small{
+  position:relative;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) > .premiacaoDestaqueTag{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  outline:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .fake{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2)::marker{
+  content:"";
+}
+
+/* selo visual no card 2 */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .unused{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  isolation:isolate;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .label{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2)::selection{
+  background:transparent;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  --premio-label-top:14px;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  box-sizing:border-box;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  background-clip:padding-box;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  overflow:visible;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .hidden{
+  display:none !important;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  background-image:linear-gradient(180deg, rgba(14,39,74,1), rgba(5,21,42,1));
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) b{
+  position:relative;
+}
+
+/* selo vermelho superior */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  padding-top:22px;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  --tag-red:#ff1739;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2):not(.x)::before{
+  /* mantém o círculo base */
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) > .none{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2)::after{
+  content:"★";
+  top:27px;
+  left:31px;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .no{
+  display:none;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  position:relative;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) > *{
+  position:relative;
+  z-index:2;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  overflow:hidden;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  border-radius:18px;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  box-shadow:
+    0 0 0 1px rgba(255,23,57,.22),
+    0 20px 44px rgba(255,23,57,.18),
+    0 0 40px rgba(255,23,57,.08);
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) > *{
+  z-index:2;
+}
+
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2) .whatever{
+  display:none;
+}
+
+/* faixa discreta de destaque no topo do 2o card */
+:is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+  background-image:
+    linear-gradient(90deg, rgba(255,23,57,.18), rgba(255,23,57,0)),
+    linear-gradient(180deg, rgba(14,39,74,1), rgba(5,21,42,1));
+  background-repeat:no-repeat;
+  background-size:100% 6px, 100% 100%;
+  background-position:top left, center;
+}
+
+/* MOBILE */
+@media (max-width: 899px){
+  :is(.desktopHero, .heroSection, .heroDesktop, .tardezinhaHero, .heroScene, .heroWrap, .heroContainer, .landingHero)::before{
+    left:-12px;
+    bottom:-16px;
+    width:170px;
+    height:250px;
+    opacity:.22;
+  }
+
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *::before{
+    top:14px;
+    left:14px;
+    width:36px;
+    height:36px;
+  }
+
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *::after{
+    top:22px;
+    left:27px;
+    font-size:13px;
+  }
+
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * h3,
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * h4,
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * strong{
+    padding-left:54px;
+  }
+
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > * p{
+    padding-left:54px;
+  }
+
+  :is(.featureGrid, .featuresGrid, .cardsGrid, .highlightsGrid, .benefitsGrid, .desktopCardsGrid, .mobileCardsGrid, .infoCardsGrid, .cardsRow) > *:nth-child(2){
+    transform:translateY(-5px) scale(1.02);
+  }
+}
+
