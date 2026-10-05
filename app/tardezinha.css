@@ -1669,3 +1669,29 @@
 
 /* FORCE_DEPLOY_TROFEU_20261005-152453 */
 
+
+/* PREMIACAO_RIGHT_START */
+
+/*
+   Move SOMENTE o bloco "Premiação do trimestre".
+   Não altera o fluxo dos demais elementos.
+*/
+
+@media (min-width:1261px){
+
+  .desktopAwardPill{
+    transform:translateX(150px) !important;
+  }
+
+}
+
+/* Tablet */
+@media (min-width:900px) and (max-width:1260px){
+
+  .desktopAwardPill{
+    transform:translateX(90px) !important;
+  }
+
+}
+
+/* PREMIACAO_RIGHT_END */
