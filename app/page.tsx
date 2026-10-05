@@ -22,8 +22,8 @@ const highlights = [
   },
   {
     number: '04',
-    title: 'Pagodinho e boa energia',
-    text: 'Música, drinks e celebração do começo ao fim.'
+    title: 'Música ao vivo',
+    text: 'Música ao vivo, drinks e celebração do começo ao fim.'
   }
 ];
 
@@ -189,3 +189,4 @@ export default function HomePage() {
     </main>
   );
 }
+
