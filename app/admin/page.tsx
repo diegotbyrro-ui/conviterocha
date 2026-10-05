@@ -82,7 +82,7 @@ export default async function AdminPage() {
       <div className="adminTop">
         <div>
           <div className="brand">ROCHA <span>EMPREENDIMENTOS</span></div>
-          <h1>Corretores • Salão do Imóvel</h1>
+          <h1>Corretores • Tardezinha Rocha</h1>
         </div>
         <form action="/api/admin/logout" method="post"><button className="ghost">Sair</button></form>
       </div>
