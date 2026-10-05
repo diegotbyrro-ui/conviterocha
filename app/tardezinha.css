@@ -341,7 +341,7 @@
 }
 
 /* =========================================================
-   DESKTOP / TABLET Ã¢â‚¬â€ mantÃƒÂ©m o layout aprovado
+   DESKTOP / TABLET ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â mantÃƒÆ’Ã‚Â©m o layout aprovado
    ========================================================= */
 
 .artboard{
@@ -448,7 +448,7 @@
 }
 
 /* =========================================================
-   MODAL DE CONFIRMAÃƒâ€¡ÃƒÆ’O
+   MODAL DE CONFIRMAÃƒÆ’Ã¢â‚¬Â¡ÃƒÆ’Ã†â€™O
    ========================================================= */
 
 .registrationOverlay{
@@ -770,116 +770,954 @@
 
 /* MOBILE_FOOTER_LOGO_V2_END */
 
-/* DESKTOP_PREMIACAO_TRIMESTRE_START */
+/* DESKTOP_LIVE_V1_START */
 
-/*
- Substitui visualmente o antigo card
- "Fim de tarde incrível" da arte desktop.
- O restante da imagem permanece intacto.
-*/
-
-.desktopAwardOverlay{
+.desktopExperience{
   display:none;
 }
 
 @media (min-width:900px){
 
-  .desktopAwardOverlay{
+  .desktopExperience{
+    position:relative;
+    display:block;
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    isolation:isolate;
+
+    color:#fff;
+
+    background:#00172e;
+
+    font-family:
+      "Helvetica Neue",
+      Arial,
+      sans-serif;
+  }
+
+  /* ARTE USADA APENAS COMO CENARIO */
+
+  .desktopExperience::before{
+    content:"";
+
     position:absolute;
-    z-index:6;
+    inset:0;
 
-    left:50.15%;
-    top:81.05%;
+    z-index:-3;
 
-    width:20.25%;
-    height:13.15%;
+    background-image:
+      url("/tardezinha-desktop-final-20261005.png");
 
-    display:flex;
-    align-items:center;
-    gap:clamp(10px,1.05vw,19px);
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
 
-    padding:
-      clamp(8px,.75vw,14px)
-      clamp(10px,.95vw,18px);
+    transform:scale(1.015);
+  }
 
-    border:1px solid rgba(34,94,139,.70);
-    border-radius:clamp(8px,.75vw,14px);
+  /* ESCURECE AS AREAS COM TEXTO DA ARTE ANTIGA */
 
-    background:
-      radial-gradient(
-        circle at 20% 15%,
-        rgba(12,63,103,.42),
-        transparent 43%
-      ),
-      linear-gradient(
-        180deg,
-        #082a49 0%,
-        #041e38 100%
-      );
+  .desktopExperience::after{
+    content:"";
 
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.035),
-      0 8px 22px rgba(0,0,0,.13);
+    position:absolute;
+    inset:0;
+
+    z-index:-2;
 
     pointer-events:none;
 
-    font-family:"Helvetica Neue",Arial,sans-serif;
+    background:
+
+      linear-gradient(
+        90deg,
+        rgba(0,19,39,.99) 0%,
+        rgba(0,19,39,.97) 28%,
+        rgba(0,19,39,.88) 43%,
+        rgba(0,19,39,.24) 62%,
+        rgba(0,19,39,.06) 100%
+      ),
+
+      linear-gradient(
+        180deg,
+        rgba(0,12,28,.03) 0%,
+        rgba(0,12,28,.08) 42%,
+        rgba(0,19,39,.88) 60%,
+        rgba(0,19,39,.99) 100%
+      );
   }
 
-  .desktopAwardIcon{
-    flex:0 0 auto;
+  .desktopShell{
+    width:min(1500px,92vw);
+    margin:0 auto;
 
-    width:clamp(45px,4.15vw,70px);
-    height:clamp(45px,4.15vw,70px);
+    padding:
+      34px
+      0
+      28px;
+  }
+
+  /* HEADER */
+
+  .desktopHeaderLive{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:28px;
+
+    margin-bottom:26px;
+  }
+
+  .desktopHeaderLogo{
+    display:block;
+
+    width:clamp(
+      170px,
+      14vw,
+      230px
+    );
+
+    height:auto;
+  }
+
+  .desktopHeaderMark{
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    color:#e7ebf0;
+
+    font-size:
+      clamp(
+        9px,
+        .72vw,
+        12px
+      );
+
+    font-weight:700;
+
+    letter-spacing:.22em;
+
+    text-transform:uppercase;
+  }
+
+  .desktopHeaderMark::after{
+    content:"";
+
+    width:46px;
+    height:2px;
+
+    background:#ff1739;
+  }
+
+  /* HERO */
+
+  .desktopHeroLive{
+    display:grid;
+
+    grid-template-columns:
+      minmax(470px,.92fr)
+      minmax(460px,1.08fr);
+
+    align-items:center;
+
+    min-height:350px;
+  }
+
+  .desktopHeroCopyLive{
+    max-width:690px;
+
+    padding:
+      10px
+      0
+      22px;
+  }
+
+  .desktopEyebrowLive{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#ff1739;
+
+    font-size:
+      clamp(
+        15px,
+        1.3vw,
+        22px
+      );
+
+    font-weight:900;
+
+    letter-spacing:.23em;
+
+    text-transform:uppercase;
+  }
+
+  .desktopTitleLive{
+    margin:0;
+
+    color:#fff;
+
+    font-size:
+      clamp(
+        64px,
+        6.1vw,
+        106px
+      );
+
+    line-height:.82;
+
+    font-weight:950;
+
+    letter-spacing:-.055em;
+
+    text-transform:uppercase;
+
+    text-shadow:
+      0 5px 18px
+      rgba(0,0,0,.28);
+  }
+
+  .desktopScriptLive{
+    display:block;
+
+    width:max-content;
+
+    margin:
+      -1px
+      0
+      17px
+      4px;
+
+    color:#ff1739;
+
+    font-family:
+      "Brush Script MT",
+      "Segoe Script",
+      cursive;
+
+    font-size:
+      clamp(
+        54px,
+        5.3vw,
+        92px
+      );
+
+    line-height:.92;
+
+    font-weight:700;
+
+    letter-spacing:-.055em;
+
+    transform:rotate(-2deg);
+
+    text-shadow:
+      0 4px 16px
+      rgba(0,0,0,.25);
+  }
+
+  .desktopLeadLive{
+    margin:
+      0
+      0
+      8px;
+
+    color:#f3f5f7;
+
+    font-size:
+      clamp(
+        21px,
+        1.7vw,
+        30px
+      );
+
+    line-height:1.16;
+
+    font-weight:300;
+  }
+
+  .desktopLeadLive strong{
+    font-weight:800;
+  }
+
+  .desktopBodyLive{
+    max-width:620px;
+
+    margin:0;
+
+    color:#e3e8ed;
+
+    font-size:
+      clamp(
+        14px,
+        1.08vw,
+        18px
+      );
+
+    line-height:1.45;
+  }
+
+  /* PREMIAÇÃO */
+
+  .desktopAwardPill{
+    display:inline-flex;
+    align-items:center;
+
+    gap:11px;
+
+    margin-top:18px;
+
+    padding:
+      9px
+      15px;
+
+    border:
+      1px solid
+      rgba(255,23,57,.58);
+
+    border-radius:999px;
+
+    background:
+      rgba(3,31,57,.88);
+
+    box-shadow:
+      0 9px 26px
+      rgba(0,0,0,.18);
+  }
+
+  .desktopAwardPill b{
+    display:grid;
+    place-items:center;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:#ff1739;
+
+    font-size:15px;
+  }
+
+  .desktopAwardPill span{
+    color:#fff;
+
+    font-size:
+      clamp(
+        11px,
+        .82vw,
+        14px
+      );
+
+    font-weight:900;
+
+    letter-spacing:.11em;
+
+    text-transform:uppercase;
+  }
+
+  .desktopVisualLive{
+    min-height:320px;
+  }
+
+  /* FORMULARIO */
+
+  .desktopInviteLive{
+    position:relative;
+    z-index:3;
+
+    width:min(
+      840px,
+      68vw
+    );
+
+    margin:
+      -4px
+      auto
+      17px;
+
+    padding:
+      15px
+      30px
+      17px;
+
+    border:
+      2px solid
+      #ff1739;
+
+    border-radius:22px;
+
+    background:
+      radial-gradient(
+        circle at 84% 0%,
+        rgba(255,23,57,.10),
+        transparent 30%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(4,34,62,.98),
+        rgba(1,24,46,.98)
+      );
+
+    box-shadow:
+      0 18px 48px rgba(0,0,0,.22),
+      0 0 28px rgba(255,23,57,.08);
+
+    text-align:center;
+  }
+
+  .desktopInviteHead{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    margin-bottom:4px;
+  }
+
+  .desktopInviteLink{
+    color:#ff1739;
+
+    font-size:25px;
+
+    line-height:1;
+  }
+
+  .desktopInviteHead strong{
+    font-size:
+      clamp(
+        13px,
+        1.05vw,
+        18px
+      );
+
+    line-height:1;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+  }
+
+  .desktopInviteLive > p{
+    margin:
+      0
+      0
+      10px;
+
+    color:#d3dce5;
+
+    font-size:
+      clamp(
+        10px,
+        .78vw,
+        13px
+      );
+  }
+
+  .desktopInviteLive
+  .referenceCodeControl.isDesktop{
+    position:relative;
+
+    left:auto;
+    top:auto;
+
+    width:100%;
+    height:50px;
+
+    margin:0;
+  }
+
+  .desktopInviteLive
+  .referenceCodeInput{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:
+      calc(100% - 82px);
+
+    height:50px;
+
+    padding:
+      0
+      18px;
+
+    border:
+      1px solid
+      rgba(189,207,223,.54);
+
+    border-radius:
+      15px
+      0
+      0
+      15px;
+
+    background:#062744;
+
+    color:#fff;
+
+    box-shadow:none;
+
+    font-size:15px;
+  }
+
+  .desktopInviteLive
+  .referenceArrowButton{
+    position:absolute;
+
+    right:0;
+    top:0;
 
     display:grid;
     place-items:center;
 
-    border:clamp(3px,.23vw,4px) solid #ff1739;
-    border-radius:50%;
+    width:82px;
+    height:50px;
+
+    border:0;
+
+    border-radius:
+      0
+      15px
+      15px
+      0;
+
+    background:
+      linear-gradient(
+        180deg,
+        #ff2442,
+        #ff1033
+      );
+
+    color:#fff;
   }
 
-  .desktopAwardIcon svg{
-    width:58%;
-    height:58%;
-
-    fill:none;
-    stroke:#ff1739;
-    stroke-width:3.5;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-  }
-
-  .desktopAwardCopy{
-    min-width:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-  }
-
-  .desktopAwardCopy strong{
+  .desktopInviteLive
+  .referenceArrowButton span{
     display:block;
-
-    margin:0 0 clamp(5px,.45vw,8px);
 
     color:#fff;
 
-    font-size:clamp(11px,.92vw,16px);
-    line-height:1.17;
-    font-weight:800;
-
-    letter-spacing:.025em;
+    font-size:26px;
   }
 
-  .desktopAwardCopy span{
+  .desktopInviteLive
+  .referenceInlineError{
+    top:56px;
+
+    color:#ff9aa6;
+
+    font-size:11px;
+  }
+
+  /* DATA / HORARIO / LOCAL */
+
+  .desktopMetaLive{
+    display:grid;
+
+    grid-template-columns:
+      1fr
+      1fr
+      1.55fr;
+
+    width:min(
+      960px,
+      76vw
+    );
+
+    margin:
+      0
+      auto
+      17px;
+
+    border-top:
+      1px solid
+      rgba(255,255,255,.05);
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.08);
+  }
+
+  .desktopMetaItem{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    min-height:76px;
+
+    padding:
+      11px
+      24px;
+  }
+
+  .desktopMetaItem
+  + .desktopMetaItem::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:17px;
+    bottom:17px;
+
+    width:1px;
+
+    background:
+      rgba(255,255,255,.36);
+  }
+
+  .desktopMetaIcon{
+    flex:0 0 auto;
+
+    display:grid;
+    place-items:center;
+
+    width:42px;
+    height:42px;
+
+    border:
+      3px solid
+      #ff1739;
+
+    border-radius:50%;
+
+    color:#ff1739;
+
+    font-size:17px;
+
+    font-weight:900;
+  }
+
+  .desktopMetaText span{
     display:block;
 
-    color:#e1e8ee;
+    margin-bottom:3px;
 
-    font-size:clamp(8px,.70vw,12px);
-    line-height:1.33;
-    font-weight:400;
+    color:#c8d3dd;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.20em;
+
+    text-transform:uppercase;
+  }
+
+  .desktopMetaText strong{
+    display:block;
+
+    color:#fff;
+
+    font-size:
+      clamp(
+        14px,
+        1.05vw,
+        18px
+      );
+
+    line-height:1.12;
+  }
+
+  .desktopMetaText small{
+    display:block;
+
+    margin-top:2px;
+
+    color:#c7d0d9;
+
+    font-size:
+      clamp(
+        10px,
+        .74vw,
+        12px
+      );
+
+    line-height:1.25;
+  }
+
+  /* CARDS */
+
+  .desktopCardsLive{
+    display:grid;
+
+    grid-template-columns:
+      repeat(4,1fr);
+
+    gap:12px;
+
+    width:min(
+      1280px,
+      88vw
+    );
+
+    margin:0 auto;
+  }
+
+  .desktopFeatureCard{
+    position:relative;
+
+    min-height:126px;
+
+    padding:
+      18px
+      16px
+      15px
+      72px;
+
+    overflow:hidden;
+
+    border:
+      1px solid
+      rgba(27,91,139,.78);
+
+    border-radius:14px;
+
+    background:
+      radial-gradient(
+        circle at 6% 4%,
+        rgba(255,23,57,.07),
+        transparent 30%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(7,42,73,.98),
+        rgba(3,29,54,.98)
+      );
+
+    box-shadow:
+      0 10px 24px
+      rgba(0,0,0,.13);
+  }
+
+  .desktopFeatureCard.isAward{
+    border-color:
+      rgba(255,23,57,.45);
+
+    background:
+      radial-gradient(
+        circle at 92% 0%,
+        rgba(255,40,48,.16),
+        transparent 42%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(8,45,76,.98),
+        rgba(3,29,54,.98)
+      );
+  }
+
+  .desktopFeatureIcon{
+    position:absolute;
+
+    left:15px;
+    top:18px;
+
+    display:grid;
+    place-items:center;
+
+    width:44px;
+    height:44px;
+
+    border:
+      3px solid
+      #ff1739;
+
+    border-radius:50%;
+
+    color:#ff1739;
+
+    font-size:17px;
+
+    font-weight:900;
+  }
+
+  .desktopFeatureCard strong{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#fff;
+
+    font-size:
+      clamp(
+        11px,
+        .88vw,
+        15px
+      );
+
+    line-height:1.18;
+
+    text-transform:uppercase;
+  }
+
+  .desktopFeatureCard small{
+    display:block;
+
+    color:#cbd5de;
+
+    font-size:
+      clamp(
+        9px,
+        .68vw,
+        11px
+      );
+
+    line-height:1.42;
+  }
+
+  /* FOOTER */
+
+  .desktopFooterLive{
+    display:grid;
+
+    grid-template-columns:
+      auto
+      1px
+      1fr
+      auto;
+
+    align-items:center;
+
+    gap:20px;
+
+    width:min(
+      1280px,
+      88vw
+    );
+
+    margin:
+      18px
+      auto
+      0;
+
+    padding:
+      17px
+      8px
+      0;
+
+    border-top:
+      1px solid
+      rgba(255,255,255,.08);
+  }
+
+  .desktopFooterLogo{
+    display:block;
+
+    width:150px;
+
+    height:auto;
+  }
+
+  .desktopFooterDivider{
+    width:1px;
+    height:42px;
+
+    background:
+      rgba(255,255,255,.25);
+  }
+
+  .desktopFooterLive p{
+    margin:0;
+
+    color:#b4c2ce;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+  }
+
+  .desktopFooterSignature{
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.20em;
+
+    text-transform:uppercase;
+
+    white-space:nowrap;
   }
 }
 
-/* DESKTOP_PREMIACAO_TRIMESTRE_END */
+/* TABLET HORIZONTAL */
+
+@media
+(min-width:900px)
+and
+(max-width:1180px){
+
+  .desktopShell{
+    width:94vw;
+  }
+
+  .desktopHeroLive{
+    grid-template-columns:
+      1fr
+      .9fr;
+
+    min-height:330px;
+  }
+
+  .desktopTitleLive{
+    font-size:
+      clamp(
+        58px,
+        7vw,
+        82px
+      );
+  }
+
+  .desktopScriptLive{
+    font-size:
+      clamp(
+        49px,
+        6.4vw,
+        72px
+      );
+  }
+
+  .desktopInviteLive{
+    width:74vw;
+  }
+
+  .desktopMetaLive{
+    width:88vw;
+  }
+
+  .desktopCardsLive,
+  .desktopFooterLive{
+    width:92vw;
+  }
+
+  .desktopFeatureCard{
+    min-height:136px;
+
+    padding-left:62px;
+  }
+
+  .desktopFeatureIcon{
+    width:38px;
+    height:38px;
+  }
+}
+
+/* DESKTOP_LIVE_V1_END */
