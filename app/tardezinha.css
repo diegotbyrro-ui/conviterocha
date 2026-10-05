@@ -1408,38 +1408,49 @@ img{
 /* ========================================================== */
 
 
-/* TROFEU_OVERLAY_FINAL_START */
+/* TROFEU_LATERAL_V4_START */
 
 @media (min-width:900px){
 
   .desktopHeroGrid{
-    position:relative;
+    position:relative !important;
     isolation:isolate;
   }
 
+  /*
+    TEXTO SEM ALTERAÇÃO.
+    Apenas garante que continue acima do troféu.
+  */
   .desktopLeft{
-    position:relative;
-    z-index:3;
+    position:relative !important;
+    z-index:5 !important;
   }
 
   /*
-    TROFEU DECORATIVO:
-    grande, lateral, atras do texto e desaparecendo no fundo.
+    TROFÉU DECORATIVO LATERAL
   */
   .desktopTrophyArt{
+
     position:absolute !important;
 
-    left:-150px !important;
-    top:-10px !important;
-    bottom:auto !important;
-
-    width:465px !important;
+    /*
+      MUITO maior para ocupar de verdade
+      o espaço da lateral esquerda.
+    */
+    width:610px !important;
     max-width:none !important;
     height:auto !important;
 
-    z-index:1 !important;
+    /*
+      Sai parcialmente da tela e fica
+      atrás do conteúdo, como no mockup.
+    */
+    left:-255px !important;
+    top:-55px !important;
+    right:auto !important;
+    bottom:auto !important;
 
-    opacity:.40 !important;
+    z-index:1 !important;
 
     pointer-events:none !important;
 
@@ -1448,59 +1459,93 @@ img{
 
     transform:none !important;
 
-    mix-blend-mode:normal !important;
+    /*
+      ESSA É A CORREÇÃO IMPORTANTE.
+
+      Como a própria imagem possui fundo
+      preto/azul, SCREEN faz a parte escura
+      se misturar ao background da página.
+    */
+    mix-blend-mode:screen !important;
+
+    /*
+      A imagem pode ficar relativamente
+      visível porque o screen já suaviza
+      o fundo original.
+    */
+    opacity:.42 !important;
 
     filter:
       brightness(.72)
-      saturate(.92)
-      contrast(1.08)
+      saturate(.88)
+      contrast(1.06)
       drop-shadow(
-        0 28px 55px
-        rgba(0,0,0,.26)
+        18px 24px 50px
+        rgba(255,23,57,.08)
       ) !important;
 
     /*
-      FADE:
-      visivel na lateral esquerda e desaparece
-      gradualmente quando se aproxima do texto.
+      TROFÉU COMEÇA VISÍVEL NA ESQUERDA
+      E SOME AO SE APROXIMAR DO TEXTO.
     */
     -webkit-mask-image:
-      radial-gradient(
-        ellipse 86% 88% at 30% 50%,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,.98) 38%,
-        rgba(0,0,0,.82) 56%,
-        rgba(0,0,0,.50) 72%,
-        rgba(0,0,0,.20) 84%,
-        transparent 100%
+      linear-gradient(
+        90deg,
+
+        rgba(0,0,0,.98) 0%,
+        rgba(0,0,0,.98) 24%,
+
+        rgba(0,0,0,.92) 40%,
+
+        rgba(0,0,0,.72) 56%,
+
+        rgba(0,0,0,.42) 69%,
+
+        rgba(0,0,0,.18) 80%,
+
+        rgba(0,0,0,.05) 89%,
+
+        transparent 98%
       ) !important;
 
     mask-image:
-      radial-gradient(
-        ellipse 86% 88% at 30% 50%,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,.98) 38%,
-        rgba(0,0,0,.82) 56%,
-        rgba(0,0,0,.50) 72%,
-        rgba(0,0,0,.20) 84%,
-        transparent 100%
+      linear-gradient(
+        90deg,
+
+        rgba(0,0,0,.98) 0%,
+        rgba(0,0,0,.98) 24%,
+
+        rgba(0,0,0,.92) 40%,
+
+        rgba(0,0,0,.72) 56%,
+
+        rgba(0,0,0,.42) 69%,
+
+        rgba(0,0,0,.18) 80%,
+
+        rgba(0,0,0,.05) 89%,
+
+        transparent 98%
       ) !important;
   }
 }
 
 
-/* TABLET */
+/*
+  TABLET
+*/
 
 @media (min-width:900px) and (max-width:1260px){
 
   .desktopTrophyArt{
-    left:-115px !important;
-    top:15px !important;
 
-    width:390px !important;
+    width:470px !important;
 
-    opacity:.34 !important;
+    left:-195px !important;
+    top:-20px !important;
+
+    opacity:.36 !important;
   }
 }
 
-/* TROFEU_OVERLAY_FINAL_END */
+/* TROFEU_LATERAL_V4_END */
