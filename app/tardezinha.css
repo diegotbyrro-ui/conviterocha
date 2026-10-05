@@ -928,3 +928,87 @@ img{
     font-size:26px;
   }
 }
+
+
+/* ==== LIMPEZA FINAL DAS COPIES DE FUNDO - DESKTOP ==== */
+@media (min-width: 900px){
+
+  /* esconde copies decorativas de fundo */
+  [class*="ghost"],
+  [class*="Ghost"],
+  [class*="watermark"],
+  [class*="Watermark"],
+  [class*="backdrop"],
+  [class*="Backdrop"],
+  [class*="ambient"],
+  [class*="Ambient"],
+  [class*="echo"],
+  [class*="Echo"],
+  [class*="duplicate"],
+  [class*="Duplicate"],
+  [class*="decorativeCopy"],
+  [class*="DecorativeCopy"],
+  [class*="decorativeText"],
+  [class*="DecorativeText"],
+  [class*="topLabel"],
+  [class*="TopLabel"],
+  [class*="cornerLabel"],
+  [class*="CornerLabel"],
+  [class*="miniLabel"],
+  [class*="MiniLabel"],
+  [class*="bgCopy"],
+  [class*="BgCopy"],
+  [class*="heroGhost"],
+  [class*="HeroGhost"],
+  [class*="heroWatermark"],
+  [class*="HeroWatermark"]{
+    display:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+
+  /* mata pseudo-elementos que podem estar desenhando texto no fundo */
+  .desktopHero::before,
+  .desktopHero::after,
+  .desktopHeroInner::before,
+  .desktopHeroInner::after,
+  .desktopHeroScene::before,
+  .desktopHeroScene::after,
+  .heroSection::before,
+  .heroSection::after,
+  .heroDesktop::before,
+  .heroDesktop::after,
+  .heroDesktopScene::before,
+  .heroDesktopScene::after{
+    content:none !important;
+    display:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+  }
+
+  /* garante que o fundo fique limpo e o conteúdo real fique acima */
+  .desktopHero,
+  .desktopHeroInner,
+  .desktopHeroScene,
+  .heroSection,
+  .heroDesktop,
+  .heroDesktopScene{
+    isolation:isolate;
+  }
+
+  .desktopHeroContent,
+  .desktopInviteBox,
+  .desktopInfoBar,
+  .desktopFeatureGrid,
+  .desktopFooter,
+  .heroContent,
+  .heroForm,
+  .heroInfo,
+  .heroCards,
+  .heroFooter{
+    position:relative;
+    z-index:2;
+  }
+}
+
