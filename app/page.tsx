@@ -243,8 +243,8 @@ export default function HomePage() {
           <div className="desktopHeroGrid">
 
             <img
-              className="desktopTrophyArt"
-              src="/trofeu-trimestre.png"
+              className="desktopTrophyArtV5"
+              src="/trofeu-trimestre.png?v=5"
               alt=""
               aria-hidden="true"
             />

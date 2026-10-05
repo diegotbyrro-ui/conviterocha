@@ -1549,3 +1549,122 @@ img{
 }
 
 /* TROFEU_LATERAL_V4_END */
+
+
+/* TROFEU_V5_START */
+
+/*
+   REGRA EXCLUSIVA.
+   Nenhum .desktopTrophyArt antigo consegue interferir.
+*/
+
+@media (min-width:900px){
+
+  .desktopHeroGrid{
+    position:relative !important;
+    isolation:isolate;
+  }
+
+  .desktopLeft{
+    position:relative !important;
+    z-index:5 !important;
+  }
+
+  .desktopTrophyArtV5{
+    position:absolute !important;
+
+    /*
+       Aqui está a principal correção:
+       grande, mas SEM jogar metade dele fora da tela.
+    */
+    left:-105px !important;
+    top:5px !important;
+
+    right:auto !important;
+    bottom:auto !important;
+
+    width:clamp(540px,36vw,650px) !important;
+    max-width:none !important;
+    height:auto !important;
+
+    z-index:1 !important;
+
+    pointer-events:none !important;
+
+    /*
+       O PNG JA TEM TRANSPARENCIA.
+       Portanto NÃO usamos screen.
+    */
+    mix-blend-mode:normal !important;
+
+    /*
+       Mais presença, mas ainda decorativo.
+    */
+    opacity:.38 !important;
+
+    transform:none !important;
+
+    filter:
+      brightness(.72)
+      saturate(.90)
+      contrast(1.04)
+      drop-shadow(
+        12px 25px 45px
+        rgba(0,0,0,.22)
+      ) !important;
+
+    /*
+       Mantemos boa parte do trofeu totalmente visivel.
+       O fade começa apenas depois da metade.
+    */
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+
+        #000 0%,
+        #000 52%,
+
+        rgba(0,0,0,.96) 60%,
+        rgba(0,0,0,.82) 68%,
+        rgba(0,0,0,.60) 76%,
+        rgba(0,0,0,.34) 84%,
+        rgba(0,0,0,.12) 91%,
+
+        transparent 100%
+      ) !important;
+
+    mask-image:
+      linear-gradient(
+        to right,
+
+        #000 0%,
+        #000 52%,
+
+        rgba(0,0,0,.96) 60%,
+        rgba(0,0,0,.82) 68%,
+        rgba(0,0,0,.60) 76%,
+        rgba(0,0,0,.34) 84%,
+        rgba(0,0,0,.12) 91%,
+
+        transparent 100%
+      ) !important;
+  }
+}
+
+
+/* TABLET */
+
+@media (min-width:900px) and (max-width:1260px){
+
+  .desktopTrophyArtV5{
+    left:-80px !important;
+    top:25px !important;
+
+    width:470px !important;
+
+    opacity:.32 !important;
+  }
+}
+
+/* TROFEU_V5_END */
+
