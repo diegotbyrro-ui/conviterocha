@@ -1,14 +1,9 @@
-:root{
+﻿:root{
   --ref-red:#ff1739;
   --ref-navy:#00182f;
 }
 
 *{box-sizing:border-box}
-html,body{
-  margin:0;
-  min-width:320px;
-  background:#000814;
-}
 
 .dualLayoutPage{
   min-height:100vh;
@@ -293,8 +288,6 @@ html,body{
 }
 
 @media (min-width:900px){
-  html,body,.dualLayoutPage{background:#00182f}
-
   .dualLayoutPage{
     padding:0;
     background:#00182f;
@@ -320,3 +313,4 @@ html,body{
   .registrationHead strong{font-size:22px}
   .registrationSuccess h3{font-size:26px}
 }
+
