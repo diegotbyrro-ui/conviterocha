@@ -1,10 +1,14 @@
-'use client';
+ 'use client';
 
 import { FormEvent, useEffect, useState } from 'react';
 
 type InviteInfo = {
   name: string;
   profile: string;
+};
+
+type Props = {
+  variant?: 'mobile' | 'desktop';
 };
 
 function formatInviteCode(value: string) {
@@ -17,7 +21,7 @@ function formatInviteCode(value: string) {
   return value.toUpperCase().slice(0, 23);
 }
 
-export default function InviteRegistrationForm() {
+export default function InviteRegistrationForm({ variant = 'mobile' }: Props) {
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState(false);
   const [message, setMessage] = useState('');
@@ -50,7 +54,7 @@ export default function InviteRegistrationForm() {
     const code = formatInviteCode(inviteCode).trim();
     setInviteCode(code);
 
-    if (code.length < 10) {
+    if (code.length < 6) {
       setInviteMessage('Digite o código de convite recebido.');
       return;
     }
@@ -113,10 +117,6 @@ export default function InviteRegistrationForm() {
 
       if (res.ok) {
         setDone(true);
-        setInviteInfo(null);
-        setInviteCode('');
-        setInviteMessage('');
-        setFormStartedAt(Date.now());
       } else {
         if (res.status === 409 || json.code === 'INVITE_INVALID' || json.code === 'INVITE_FULL') {
           setInviteInfo(null);
@@ -130,6 +130,13 @@ export default function InviteRegistrationForm() {
     }
   }
 
+  function closeModal() {
+    setMessage('');
+    setInviteMessage('');
+    setInviteInfo(null);
+    setDone(false);
+  }
+
   function reset() {
     setDone(false);
     setMessage('');
@@ -139,145 +146,133 @@ export default function InviteRegistrationForm() {
     setFormStartedAt(Date.now());
   }
 
-  if (done) {
-    return (
-      <div className="successState">
-        <div className="successIcon">✓</div>
-        <span className="eyebrow">CADASTRO CONCLUÍDO</span>
-        <h3>
-          Nos vemos
-          <br />
-          no stand da Rocha.
-        </h3>
-        <p>Seu cadastro foi recebido. Nossa equipe comercial estará pronta para receber você no Salão do Imóvel.</p>
-        <button onClick={reset}>Cadastrar outro corretor</button>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={submit}>
-      <div className="hpField" aria-hidden="true">
-        <label>
-          Site
-          <input name="website" tabIndex={-1} autoComplete="off" />
-        </label>
+    <>
+      <div className={`referenceCodeControl ${variant === 'desktop' ? 'isDesktop' : 'isMobile'}`}>
+        <input
+          className="referenceCodeInput"
+          name="invite_code"
+          value={inviteCode}
+          onChange={(event) => {
+            setInviteCode(formatInviteCode(event.target.value));
+            setInviteInfo(null);
+            setInviteMessage('');
+            setMessage('');
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && !inviteInfo) {
+              event.preventDefault();
+              void validateInvite();
+            }
+          }}
+          autoComplete="off"
+          autoCapitalize="characters"
+          spellCheck={false}
+          placeholder="Ex.: ROCHA2024"
+          maxLength={23}
+          aria-label="Código de convite"
+        />
+
+        <button
+          type="button"
+          className="referenceArrowButton"
+          onClick={validateInvite}
+          disabled={inviteChecking}
+          aria-label="Validar código de convite"
+        >
+          <span aria-hidden="true">{inviteChecking ? '…' : '→'}</span>
+        </button>
+
+        {inviteMessage && <div className="referenceInlineError">{inviteMessage}</div>}
       </div>
 
-      <div className="formTitle">
-        <span>CADASTRO DE CORRETOR</span>
-        <strong>Valide seu convite para continuar.</strong>
-      </div>
+      {inviteInfo && !done && (
+        <div className="registrationOverlay" role="dialog" aria-modal="true" aria-label="Confirmar presença">
+          <div className="registrationCard">
+            <button className="registrationClose" type="button" onClick={closeModal} aria-label="Fechar">×</button>
 
-      <div className={`inviteGate ${inviteInfo ? 'inviteGate--valid' : ''}`}>
-        <label>
-          Código de convite
-          <div className="inviteCodeRow">
-            <input
-              name="invite_code"
-              value={inviteCode}
-              onChange={(event) => {
-                setInviteCode(formatInviteCode(event.target.value));
-                setInviteInfo(null);
-                setInviteMessage('');
-                setMessage('');
-              }}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' && !inviteInfo) {
-                  event.preventDefault();
-                  void validateInvite();
-                }
-              }}
-              required
-              autoComplete="off"
-              autoCapitalize="characters"
-              spellCheck={false}
-              placeholder="RCH-XXXX-XXXX-XXXX-XXXX"
-              maxLength={23}
-            />
-            <button
-              className="inviteValidateButton"
-              type="button"
-              onClick={validateInvite}
-              disabled={inviteChecking}
-            >
-              {inviteChecking ? 'Validando...' : inviteInfo ? 'Validado' : 'Validar'}
-            </button>
+            <div className="registrationHead">
+              <span>CONVITE VALIDADO</span>
+              <strong>{inviteInfo.name}</strong>
+              <small>{inviteInfo.profile}</small>
+            </div>
+
+            <form onSubmit={submit}>
+              <div className="hpField" aria-hidden="true">
+                <label>
+                  Site
+                  <input name="website" tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
+
+              {message && <p className="registrationError">{message}</p>}
+
+              <label>
+                Nome completo
+                <input name="name" required placeholder="Seu nome" />
+              </label>
+
+              <div className="twoCols">
+                <label>
+                  WhatsApp
+                  <input name="phone" required placeholder="(82) 99999-9999" />
+                </label>
+                <label>
+                  CRECI
+                  <input name="creci" placeholder="Ex.: CRECI 0000" />
+                </label>
+              </div>
+
+              <label>
+                E-mail
+                <input name="email" type="email" placeholder="voce@email.com" />
+              </label>
+
+              <label>
+                Qual produto quer conhecer melhor?
+                <select name="interest" defaultValue="">
+                  <option value="">Quero conhecer todos</option>
+                  <option>Easy Rota do Mar</option>
+                  <option>Vistas do Sino</option>
+                  <option>Eco Vittá</option>
+                </select>
+              </label>
+
+              <label>
+                Você já comercializa empreendimentos da Rocha?
+                <select name="relationship" defaultValue="" required>
+                  <option value="">Selecione</option>
+                  <option>Sim</option>
+                  <option>Ainda não</option>
+                </select>
+              </label>
+
+              <label className="consent">
+                <input type="checkbox" name="consent" value="yes" required />
+                <span>
+                  Autorizo o contato da Rocha Empreendimentos por telefone, WhatsApp ou e-mail para relacionamento comercial.
+                </span>
+              </label>
+
+              <button className="registrationSubmit" disabled={sending}>
+                {sending ? 'Enviando...' : 'Confirmar minha presença'}
+              </button>
+            </form>
           </div>
-        </label>
-
-        {!inviteInfo && (
-          <small className="inviteHelp">
-            Digite o código enviado pela Rocha ou pela sua imobiliária.
-          </small>
-        )}
-
-        {inviteMessage && <p className="inviteError">{inviteMessage}</p>}
-
-        {inviteInfo && (
-          <div className="inviteValid">
-            <span>✓ CONVITE VALIDADO</span>
-            <strong>{inviteInfo.name}</strong>
-            <small>{inviteInfo.profile}</small>
-          </div>
-        )}
-      </div>
-
-      {message && <p className="error">{message}</p>}
-
-      {inviteInfo && (
-        <div className="inviteUnlocked">
-          <label>
-            Nome completo
-            <input name="name" required placeholder="Seu nome" />
-          </label>
-
-          <div className="twoCols">
-            <label>
-              WhatsApp
-              <input name="phone" required placeholder="(82) 99999-9999" />
-            </label>
-            <label>
-              CRECI
-              <input name="creci" placeholder="Ex.: CRECI 0000" />
-            </label>
-          </div>
-
-          <label>
-            E-mail
-            <input name="email" type="email" placeholder="voce@email.com" />
-          </label>
-
-          <label>
-            Qual produto quer conhecer melhor?
-            <select name="interest" defaultValue="">
-              <option value="">Quero conhecer todos</option>
-              <option>Easy Rota do Mar</option>
-              <option>Vistas do Sino</option>
-              <option>Eco Vittá</option>
-            </select>
-          </label>
-
-          <label>
-            Você já comercializa empreendimentos da Rocha?
-            <select name="relationship" defaultValue="" required>
-              <option value="">Selecione</option>
-              <option>Sim</option>
-              <option>Ainda não</option>
-            </select>
-          </label>
-
-          <label className="consent">
-            <input type="checkbox" name="consent" value="yes" required />
-            <span>Autorizo o contato da Rocha Empreendimentos por telefone, WhatsApp ou e-mail para relacionamento comercial.</span>
-          </label>
-
-          <button className="submitButton" disabled={sending}>
-            {sending ? 'Enviando...' : 'Confirmar minha presença'} <span>â†—</span>
-          </button>
-
         </div>
       )}
-    </form>
+
+      {done && (
+        <div className="registrationOverlay" role="dialog" aria-modal="true" aria-label="Presença confirmada">
+          <div className="registrationCard registrationSuccess">
+            <div className="successCheck">✓</div>
+            <span>PRESENÇA CONFIRMADA</span>
+            <h3>Nos vemos na Tardezinha com a Rocha.</h3>
+            <p>Sua confirmação foi recebida com sucesso.</p>
+            <button type="button" onClick={reset}>Fechar</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
