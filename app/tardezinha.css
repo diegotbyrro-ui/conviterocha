@@ -1,4 +1,4 @@
-﻿:root{
+:root{
   --ref-red:#ff1739;
   --ref-red-2:#ff3149;
   --ref-navy:#00182f;
@@ -10,26 +10,24 @@
 
 *{box-sizing:border-box}
 
-html,body{
-  margin:0;
-  min-width:320px;
-  background:#000814;
-}
 
-body{
-  font-family:"Helvetica Neue",Arial,sans-serif;
-  color:#fff;
-}
 
-img{
-  max-width:100%;
-  display:block;
-}
+
+
+
 
 .tardezinhaPage{
   width:100%;
+  min-width:320px;
   overflow-x:hidden;
   background:#000814;
+  color:#fff;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+
+.tardezinhaPage img{
+  max-width:100%;
+  display:block;
 }
 
 /* =========================================================
