@@ -12,7 +12,6 @@ export default function HomePage() {
         <div className="formOverlay formOverlayMobile">
           <InviteRegistrationForm variant="mobile" />
         </div>
-        <div className="weekdayPatch weekdayPatchMobile">SEXTA-FEIRA</div>
       </section>
 
       <section className="artboard artboardDesktop" aria-label="Tardezinha com a Rocha - desktop">
@@ -24,9 +23,9 @@ export default function HomePage() {
         <div className="formOverlay formOverlayDesktop">
           <InviteRegistrationForm variant="desktop" />
         </div>
-        <div className="weekdayPatch weekdayPatchDesktop">SEXTA-FEIRA</div>
       </section>
     </main>
   );
 }
+
 
