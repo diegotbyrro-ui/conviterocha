@@ -1408,12 +1408,7 @@ img{
 /* ========================================================== */
 
 
-/* TROFEU_OVERLAY_FIX_START */
-
-/*
-  O trofeu precisa ficar FORA do fluxo do grid.
-  Dessa forma ele não empurra o título nem o restante do layout.
-*/
+/* TROFEU_OVERLAY_FINAL_START */
 
 @media (min-width:900px){
 
@@ -1427,80 +1422,69 @@ img{
     z-index:3;
   }
 
+  /*
+    TROFEU DECORATIVO:
+    grande, lateral, atras do texto e desaparecendo no fundo.
+  */
   .desktopTrophyArt{
     position:absolute !important;
 
-    /*
-      Lateral esquerda.
-      Ele invade um pouco para fora do container
-      para ocupar aquela área vazia.
-    */
-    left:-145px !important;
-    top:55px !important;
+    left:-150px !important;
+    top:-10px !important;
     bottom:auto !important;
 
-    width:430px !important;
+    width:465px !important;
     max-width:none !important;
     height:auto !important;
 
-    /*
-      Fica atrás de todo o conteúdo.
-    */
     z-index:1 !important;
 
-    /*
-      Aparência discreta.
-    */
-    opacity:.30 !important;
+    opacity:.40 !important;
 
     pointer-events:none !important;
 
-    /*
-      Não participa mais do grid.
-    */
     grid-column:auto !important;
     grid-row:auto !important;
 
-    /*
-      Integra melhor o troféu ao cenário.
-    */
-    mix-blend-mode:screen;
+    transform:none !important;
+
+    mix-blend-mode:normal !important;
 
     filter:
-      saturate(.95)
-      contrast(1.04)
+      brightness(.72)
+      saturate(.92)
+      contrast(1.08)
       drop-shadow(
-        0 25px 55px
-        rgba(255,23,57,.13)
-      );
+        0 28px 55px
+        rgba(0,0,0,.26)
+      ) !important;
 
     /*
-      Faz o troféu desaparecer suavemente
-      em direção ao conteúdo.
+      FADE:
+      visivel na lateral esquerda e desaparece
+      gradualmente quando se aproxima do texto.
     */
     -webkit-mask-image:
-      linear-gradient(
-        to right,
-        rgba(0,0,0,.96) 0%,
-        rgba(0,0,0,.94) 30%,
-        rgba(0,0,0,.78) 52%,
-        rgba(0,0,0,.48) 69%,
+      radial-gradient(
+        ellipse 86% 88% at 30% 50%,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,.98) 38%,
+        rgba(0,0,0,.82) 56%,
+        rgba(0,0,0,.50) 72%,
         rgba(0,0,0,.20) 84%,
-        rgba(0,0,0,.04) 94%,
         transparent 100%
-      );
+      ) !important;
 
     mask-image:
-      linear-gradient(
-        to right,
-        rgba(0,0,0,.96) 0%,
-        rgba(0,0,0,.94) 30%,
-        rgba(0,0,0,.78) 52%,
-        rgba(0,0,0,.48) 69%,
+      radial-gradient(
+        ellipse 86% 88% at 30% 50%,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,.98) 38%,
+        rgba(0,0,0,.82) 56%,
+        rgba(0,0,0,.50) 72%,
         rgba(0,0,0,.20) 84%,
-        rgba(0,0,0,.04) 94%,
         transparent 100%
-      );
+      ) !important;
   }
 }
 
@@ -1510,13 +1494,13 @@ img{
 @media (min-width:900px) and (max-width:1260px){
 
   .desktopTrophyArt{
-    left:-105px !important;
-    top:68px !important;
+    left:-115px !important;
+    top:15px !important;
 
-    width:340px !important;
+    width:390px !important;
 
-    opacity:.24 !important;
+    opacity:.34 !important;
   }
 }
 
-/* TROFEU_OVERLAY_FIX_END */
+/* TROFEU_OVERLAY_FINAL_END */
