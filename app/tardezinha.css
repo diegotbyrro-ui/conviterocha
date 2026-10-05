@@ -1,15 +1,348 @@
-﻿:root{
+:root{
   --ref-red:#ff1739;
+  --ref-red-2:#ff3b35;
   --ref-navy:#00182f;
+  --ref-navy-2:#031d38;
+  --ref-card:#052844;
+  --ref-text:#ffffff;
+  --ref-soft:#bcc9d6;
 }
 
 *{box-sizing:border-box}
 
 .dualLayoutPage{
-  min-height:100vh;
-  background:#000814;
+  width:100%;
+  margin:0;
   overflow-x:hidden;
+  background:#00182f;
 }
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+.mobileExperience{
+  display:block;
+  width:100%;
+  margin:0;
+  background:
+    radial-gradient(circle at 85% 0%,rgba(255,31,57,.17),transparent 28%),
+    linear-gradient(180deg,#00182f 0%,#001326 100%);
+  color:#fff;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+
+.mobileHeroFrame{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#00182f;
+  line-height:0;
+}
+
+.mobileHeroImage{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.mobileContent{
+  width:100%;
+  margin:0;
+  padding:18px 16px 30px;
+}
+
+.mobileAwardCard{
+  position:relative;
+  overflow:hidden;
+  margin:0 0 16px;
+  padding:20px 18px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,60,47,.27),transparent 38%),
+    linear-gradient(145deg,#082947 0%,#031a33 100%);
+  box-shadow:0 16px 36px rgba(0,0,0,.18);
+}
+
+.mobileAwardCard::after{
+  content:"";
+  position:absolute;
+  right:-36px;
+  bottom:-48px;
+  width:140px;
+  height:140px;
+  border:1px solid rgba(255,23,57,.35);
+  border-radius:50%;
+}
+
+.mobileAwardEyebrow,
+.mobileInviteEyebrow{
+  display:block;
+  margin-bottom:7px;
+  color:var(--ref-red);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.19em;
+}
+
+.mobileAwardCard h2{
+  position:relative;
+  z-index:1;
+  margin:0 0 8px;
+  font-size:28px;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+
+.mobileAwardCard p{
+  position:relative;
+  z-index:1;
+  margin:0;
+  max-width:34rem;
+  color:#d9e2eb;
+  font-size:14px;
+  line-height:1.52;
+}
+
+.mobileInviteCard{
+  position:relative;
+  margin:0 0 16px;
+  padding:20px 16px 18px;
+  border:2px solid var(--ref-red);
+  border-radius:20px;
+  background:
+    linear-gradient(180deg,rgba(4,35,63,.98),rgba(1,23,44,.98));
+  box-shadow:
+    0 0 28px rgba(255,23,57,.10),
+    0 18px 38px rgba(0,0,0,.23);
+}
+
+.mobileInviteIcon{
+  position:absolute;
+  top:18px;
+  right:18px;
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(255,23,57,.12);
+  color:var(--ref-red);
+  font-size:17px;
+  font-weight:900;
+}
+
+.mobileInviteCard h3{
+  margin:0 44px 6px 0;
+  color:#fff;
+  font-size:21px;
+  line-height:1.08;
+  letter-spacing:-.025em;
+}
+
+.mobileInviteCard > p{
+  margin:0 0 15px;
+  padding-right:12px;
+  color:#c5d1dc;
+  font-size:13px;
+  line-height:1.45;
+}
+
+/* Form mobile: deixa de ser overlay e passa a ser um campo real grande */
+.mobileInviteCard .referenceCodeControl.isMobile{
+  position:relative;
+  left:auto;
+  top:auto;
+  width:100%;
+  height:52px;
+  margin:0;
+}
+
+.mobileInviteCard .referenceCodeInput{
+  position:absolute;
+  left:0;
+  top:0;
+  width:calc(100% - 58px);
+  height:52px;
+  padding:0 16px;
+  border:1px solid rgba(196,213,229,.58);
+  border-radius:14px 0 0 14px;
+  outline:none;
+  background:#062744;
+  color:#fff;
+  box-shadow:none;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  font-weight:500;
+  letter-spacing:.01em;
+}
+
+.mobileInviteCard .referenceCodeInput::placeholder{
+  color:#8296aa;
+  opacity:1;
+}
+
+.mobileInviteCard .referenceCodeInput:focus{
+  border-color:#fff;
+  box-shadow:0 0 0 2px rgba(255,255,255,.08);
+}
+
+.mobileInviteCard .referenceArrowButton{
+  position:absolute;
+  right:0;
+  top:0;
+  width:58px;
+  height:52px;
+  border:0;
+  border-radius:0 14px 14px 0;
+  background:linear-gradient(180deg,#ff2442,#ff1033);
+  color:#fff;
+  cursor:pointer;
+}
+
+.mobileInviteCard .referenceArrowButton span{
+  display:block;
+  color:#fff;
+  font-size:24px;
+  line-height:1;
+}
+
+.mobileInviteCard .referenceArrowButton:disabled{
+  opacity:.7;
+  cursor:wait;
+}
+
+.mobileInviteCard .referenceInlineError{
+  position:absolute;
+  left:0;
+  right:0;
+  top:58px;
+  color:#ff9eaa;
+  text-align:left;
+  font-size:11px;
+  font-weight:700;
+}
+
+.mobileEventGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:0 0 16px;
+}
+
+.mobileEventCard{
+  min-height:104px;
+  padding:15px 14px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  background:rgba(5,38,68,.82);
+}
+
+.mobileEventCardWide{
+  grid-column:1 / -1;
+  min-height:auto;
+}
+
+.mobileEventCard span{
+  display:block;
+  margin-bottom:8px;
+  color:var(--ref-red);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.18em;
+}
+
+.mobileEventCard strong{
+  display:block;
+  margin-bottom:4px;
+  color:#fff;
+  font-size:16px;
+  line-height:1.15;
+}
+
+.mobileEventCard small{
+  display:block;
+  color:#c4d0dc;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.mobileHighlights{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:0;
+}
+
+.mobileHighlights article{
+  min-height:140px;
+  padding:14px 13px;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg,rgba(7,43,75,.96),rgba(3,29,54,.96));
+}
+
+.mobileHighlights b{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  margin-bottom:11px;
+  border:1px solid rgba(255,23,57,.65);
+  border-radius:50%;
+  color:var(--ref-red);
+  font-size:10px;
+  letter-spacing:.08em;
+}
+
+.mobileHighlights strong{
+  display:block;
+  margin-bottom:6px;
+  color:#fff;
+  font-size:13px;
+  line-height:1.25;
+}
+
+.mobileHighlights small{
+  display:block;
+  color:#b8c5d1;
+  font-size:11px;
+  line-height:1.38;
+}
+
+.mobileFooter{
+  margin:20px 0 0;
+  padding:20px 2px 0;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+
+.mobileFooter strong{
+  display:inline-block;
+  margin-right:6px;
+  color:#fff;
+  font-size:20px;
+  letter-spacing:-.035em;
+}
+
+.mobileFooter span{
+  color:#aebdcb;
+  font-size:11px;
+}
+
+.mobileFooter p{
+  margin:8px 0 0;
+  color:#8597a9;
+  font-size:10px;
+  line-height:1.45;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+/* =========================================================
+   DESKTOP / TABLET — mantém o layout aprovado
+   ========================================================= */
 
 .artboard{
   position:relative;
@@ -35,11 +368,6 @@
   z-index:10;
 }
 
-.artboardMobile{
-  width:min(100vw,1024px);
-  aspect-ratio:1024 / 1536;
-}
-
 .artboardDesktop{
   display:none;
 }
@@ -48,18 +376,10 @@
   position:absolute;
 }
 
-.referenceCodeControl.isMobile{
-  left:19.63%;
-  top:46.94%;
-  width:61%;
-  height:3.78%;
-}
-
-/* AJUSTE FINAL DESKTOP */
 .referenceCodeControl.isDesktop{
   left:28.05%;
   top:65.35%;
-  width:44.00%;
+  width:44%;
   height:5.53%;
 }
 
@@ -81,8 +401,9 @@
   letter-spacing:.01em;
 }
 
-.isMobile .referenceCodeInput{font-size:clamp(9px,1.55vw,16px)}
-.isDesktop .referenceCodeInput{font-size:clamp(12px,0.95vw,17px)}
+.isDesktop .referenceCodeInput{
+  font-size:clamp(12px,.95vw,17px);
+}
 
 .referenceCodeInput::placeholder{
   color:#718197;
@@ -109,7 +430,6 @@
 }
 
 .referenceArrowButton span{display:none}
-.referenceArrowButton:disabled{cursor:wait}
 
 .referenceInlineError{
   position:absolute;
@@ -123,8 +443,13 @@
   text-shadow:0 1px 2px rgba(0,0,0,.65);
 }
 
-.isMobile .referenceInlineError{font-size:clamp(7px,.9vw,11px)}
-.isDesktop .referenceInlineError{font-size:clamp(9px,.75vw,12px)}
+.isDesktop .referenceInlineError{
+  font-size:clamp(9px,.75vw,12px);
+}
+
+/* =========================================================
+   MODAL DE CONFIRMAÇÃO
+   ========================================================= */
 
 .registrationOverlay{
   position:fixed;
@@ -168,6 +493,7 @@
 }
 
 .registrationHead{padding-right:48px;margin-bottom:24px}
+
 .registrationHead span,
 .registrationSuccess>span{
   display:block;
@@ -176,15 +502,26 @@
   font-weight:900;
   letter-spacing:.20em;
 }
-.registrationHead strong{display:block;margin-top:8px;font-size:26px;line-height:1.15}
-.registrationHead small{display:block;margin-top:4px;color:#b9c6d2}
+
+.registrationHead strong{
+  display:block;
+  margin-top:8px;
+  font-size:26px;
+  line-height:1.15;
+}
+
+.registrationHead small{
+  display:block;
+  margin-top:4px;
+  color:#b9c6d2;
+}
 
 .registrationCard form label{
   display:block;
   margin-bottom:16px;
   color:#dbe5ed;
   font-size:11px;
-  font-weight:700
+  font-weight:700;
 }
 
 .registrationCard input,
@@ -206,11 +543,16 @@
 .registrationCard input:focus,
 .registrationCard select:focus{
   border-color:var(--ref-red);
-  box-shadow:0 0 0 2px rgba(255,23,57,.10)
+  box-shadow:0 0 0 2px rgba(255,23,57,.10);
 }
 
 .registrationCard select option{color:#111}
-.registrationCard .twoCols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.registrationCard .twoCols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
 
 .registrationCard .consent{
   display:flex!important;
@@ -218,7 +560,7 @@
   align-items:flex-start;
   color:#b8c5d0!important;
   font-weight:400!important;
-  line-height:1.4
+  line-height:1.4;
 }
 
 .registrationCard .consent input{
@@ -226,7 +568,7 @@
   height:16px!important;
   margin:1px 0 0!important;
   flex:0 0 auto;
-  accent-color:var(--ref-red)
+  accent-color:var(--ref-red);
 }
 
 .registrationSubmit,
@@ -241,11 +583,19 @@
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
-  cursor:pointer
+  cursor:pointer;
 }
 
-.registrationSubmit:disabled{opacity:.65;cursor:wait}
-.registrationError{margin:0 0 14px;color:#ff98a4;font-size:12px}
+.registrationSubmit:disabled{
+  opacity:.65;
+  cursor:wait;
+}
+
+.registrationError{
+  margin:0 0 14px;
+  color:#ff98a4;
+  font-size:12px;
+}
 
 .hpField{
   position:absolute!important;
@@ -254,7 +604,7 @@
   height:1px!important;
   overflow:hidden!important;
   opacity:0!important;
-  pointer-events:none!important
+  pointer-events:none!important;
 }
 
 .registrationSuccess{text-align:center}
@@ -268,32 +618,28 @@
   border-radius:50%;
   background:var(--ref-red);
   font-size:30px;
-  font-weight:900
+  font-weight:900;
 }
 
 .registrationSuccess h3{
   margin:12px 0;
   font-size:32px;
-  line-height:1.05
+  line-height:1.05;
 }
 
 .registrationSuccess p{
   color:#c4d0da;
-  margin:0 0 24px
+  margin:0 0 24px;
 }
 
-@media (max-width:899px){
-  .artboardMobile{display:block}
-  .artboardDesktop{display:none}
-}
+/* =========================================================
+   BREAKPOINTS
+   ========================================================= */
 
 @media (min-width:900px){
-  .dualLayoutPage{
-    padding:0;
-    background:#00182f;
+  .mobileExperience{
+    display:none;
   }
-
-  .artboardMobile{display:none}
 
   .artboardDesktop{
     display:block;
@@ -306,11 +652,51 @@
   }
 }
 
-@media (max-width:620px){
-  .registrationOverlay{padding:12px}
-  .registrationCard{padding:26px 18px 20px;border-radius:18px}
-  .registrationCard .twoCols{grid-template-columns:1fr;gap:0}
-  .registrationHead strong{font-size:22px}
-  .registrationSuccess h3{font-size:26px}
+@media (max-width:899px){
+  .artboardDesktop{
+    display:none;
+  }
 }
 
+@media (max-width:620px){
+  .registrationOverlay{
+    padding:12px;
+  }
+
+  .registrationCard{
+    padding:26px 18px 20px;
+    border-radius:18px;
+  }
+
+  .registrationCard .twoCols{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .registrationHead strong{
+    font-size:22px;
+  }
+
+  .registrationSuccess h3{
+    font-size:26px;
+  }
+}
+
+@media (max-width:390px){
+  .mobileContent{
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .mobileAwardCard h2{
+    font-size:25px;
+  }
+
+  .mobileInviteCard h3{
+    font-size:19px;
+  }
+
+  .mobileHighlights article{
+    min-height:150px;
+  }
+}
